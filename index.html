@@ -1,0 +1,1914 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfred Hitchcock: Vertigo — Guia de Platina PT-BR</title>
+    <style>
+      /* ── RESET & BASE ─────────────────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        min-height: 100vh;
+        background: transparent;
+        color: #d0c8b0;
+        font-family: 'Georgia', 'Times New Roman', serif;
+        overflow-x: hidden;
+        position: relative;
+      }
+      .wallpaper {
+        position: fixed;
+        inset: 0;
+
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 12)), url('Images/Wallpaper.jpg');
+
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        z-index: -1;
+      }
+
+      /* Film-grain noise overlay */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.4'/></svg>");
+      }
+
+      /* Noir atmosphere gradients */
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 70% 50% at 50% 0%, #4a380822 0%, transparent 60%),
+          radial-gradient(ellipse 40% 40% at 5% 100%, #38081015 0%, transparent 60%),
+          radial-gradient(ellipse 30% 30% at 95% 50%, #08102812 0%, transparent 60%);
+      }
+
+      /* Gold top line */
+      .gold-line {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        z-index: 100;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #c8a02888,
+          #e8c848cc,
+          #c8a02888,
+          transparent
+        );
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #030305;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2a2010;
+        border-radius: 2px;
+      }
+
+      /* ── LAYOUT ────────────────────────────────────────────── */
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 28px 16px 60px;
+      }
+      .step-img {
+        width: 100%;
+        max-width: 600px;
+
+        height: auto;
+
+        display: block;
+
+        margin: 16px auto;
+
+        border-radius: 12px;
+
+        object-fit: cover;
+      }
+
+      /* ── HEADER ───────────────────────────────────────────── */
+      .site-header {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+      .header-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+
+        margin-bottom: 10px;
+      }
+
+      .logo {
+        width: 350px;
+        height: auto;
+
+        filter: drop-shadow(0 0 12px #c8a02888);
+      }
+      .header-studio {
+        font-size: 10px;
+        letter-spacing: 8px;
+        color: #282010;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        font-family: monospace;
+      }
+      .header-brand {
+        font-size: 11px;
+        color: #7a6840;
+        letter-spacing: 4px;
+        margin-bottom: 8px;
+      }
+      h1 {
+        font-size: clamp(28px, 6.5vw, 58px);
+        line-height: 1;
+        font-weight: 700;
+        font-style: italic;
+        color: #e8d8b0;
+        text-shadow:
+          0 0 30px #c8a02866,
+          0 0 60px #c8a02822;
+        letter-spacing: 4px;
+        margin-bottom: 8px;
+      }
+      .header-sub {
+        font-size: 13px;
+        color: #7a6840;
+        letter-spacing: 3px;
+        margin-bottom: 16px;
+      }
+      .header-badges {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .hbadge {
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 3px 12px;
+        border-radius: 2px;
+        font-family: monospace;
+      }
+
+      /* ── TABS ─────────────────────────────────────────────── */
+      .tabs-wrap {
+        display: flex;
+        gap: 0;
+        margin-bottom: 24px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        border-bottom: 1px solid #2a2010;
+      }
+      .tabs-wrap::-webkit-scrollbar {
+        display: none;
+      }
+      .tab-btn {
+        flex: 0 0 auto;
+        padding: 10px 16px;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: #7a6840;
+        cursor: pointer;
+        font-size: 12px;
+        font-family: inherit;
+        letter-spacing: 1px;
+        transition: all 0.2s;
+        margin-bottom: -1px;
+        white-space: nowrap;
+      }
+      .tab-btn.active {
+        border-bottom-color: #c8a028;
+        color: #e8c848;
+      }
+      .tab-btn:hover:not(.active) {
+        color: #e8d8b0;
+      }
+
+      /* ── PANEL ────────────────────────────────────────────── */
+      .panel {
+        display: none;
+        animation: fadeUp 0.25s ease;
+      }
+      .panel.active {
+        display: block;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── STAT CARDS ───────────────────────────────────────── */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      .stat-card {
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        padding: 12px 10px;
+        text-align: center;
+      }
+      .stat-icon {
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+      .stat-val {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+      }
+      .stat-lbl {
+        font-size: 9px;
+        color: #282010;
+        letter-spacing: 1px;
+        margin-top: 3px;
+        text-transform: uppercase;
+        font-family: monospace;
+      }
+
+      /* ── DIFFICULTY BAR ───────────────────────────────────── */
+      .diff-card {
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        padding: 18px;
+        margin-bottom: 14px;
+      }
+      .section-label {
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+        font-family: monospace;
+        text-transform: uppercase;
+      }
+      .diff-bars {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 6px;
+      }
+      .diff-bar {
+        flex: 1;
+        height: 8px;
+        border-radius: 2px;
+        background: #141428;
+      }
+      .diff-bar.active {
+        background: #28a858;
+      }
+      .diff-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 9px;
+        color: #282010;
+        font-family: monospace;
+      }
+      .diff-text {
+        font-size: 12px;
+        color: #7a6840;
+        margin-top: 10px;
+        line-height: 1.7;
+      }
+
+      /* ── INFO CARDS ───────────────────────────────────────── */
+      .info-card {
+        border-radius: 4px;
+        padding: 14px;
+        margin-bottom: 14px;
+        border-left: 3px solid;
+      }
+      .info-card-title {
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+        font-family: monospace;
+      }
+      .info-card-body {
+        font-size: 13px;
+        line-height: 1.7;
+        color: #d0c8b0;
+      }
+
+      .miss-item {
+        display: flex;
+        gap: 10px;
+        padding: 7px 0;
+        border-bottom: 1px solid #141428;
+      }
+      .miss-item:last-child {
+        border-bottom: none;
+      }
+      .miss-icon {
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .miss-title {
+        font-size: 13px;
+        color: #d84040;
+        margin-bottom: 2px;
+      }
+      .miss-desc {
+        font-size: 12px;
+        color: #7a6840;
+      }
+
+      .source-card {
+        background: #07070f;
+        border: 1px solid #2a2010;
+        border-radius: 4px;
+        padding: 14px;
+      }
+      .source-item {
+        font-size: 12px;
+        color: #9090b0;
+        margin-bottom: 5px;
+      }
+      .source-url {
+        color: #605840;
+      }
+
+      /* ── ROUTE (CHECKLIST) ────────────────────────────────── */
+      .progress-card {
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        padding: 14px;
+        margin-bottom: 16px;
+      }
+      .progress-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+      .progress-lbl {
+        font-size: 11px;
+        color: #c8a028;
+        font-family: monospace;
+        letter-spacing: 2px;
+      }
+      .progress-count {
+        font-size: 12px;
+        color: #e8c848;
+        font-family: monospace;
+      }
+      .progress-bar-bg {
+        height: 5px;
+        background: #141428;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .progress-bar {
+        height: 100%;
+        border-radius: 10px;
+        transition: width 0.4s;
+        background: linear-gradient(90deg, #28a858, #c8a028);
+      }
+      .progress-hint {
+        font-size: 10px;
+        color: #282010;
+        margin-top: 5px;
+        font-family: monospace;
+      }
+
+      .session-block {
+        margin-bottom: 10px;
+      }
+      .session-btn {
+        width: 100%;
+        text-align: left;
+        padding: 13px 18px;
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s;
+      }
+      .session-btn.open {
+        border-radius: 4px 4px 0 0;
+      }
+      .session-btn-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .session-ico {
+        font-size: 20px;
+      }
+      .session-name {
+        font-size: 14px;
+        font-style: italic;
+      }
+      .session-count {
+        font-size: 10px;
+        color: #282010;
+        font-family: monospace;
+      }
+      .session-arrow {
+        font-size: 14px;
+      }
+
+      .session-body {
+        border: 1px solid;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        padding: 12px 18px;
+        display: none;
+      }
+      .session-body.open {
+        display: block;
+      }
+
+      .step-row {
+        display: flex;
+        gap: 10px;
+        padding: 7px 12px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        border-radius: 3px;
+        border: 1px solid transparent;
+        transition: all 0.2s;
+      }
+      .step-checkbox {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        margin-top: 1px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        border: 1px solid;
+        background: transparent;
+        transition: all 0.2s;
+      }
+      .step-text {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      /* ── ROMANCE ──────────────────────────────────────────── */
+      .romance-header {
+        background: #38081028;
+        border: 1px solid #a8202844;
+        border-left: 4px solid #a82028;
+        border-radius: 4px;
+        padding: 16px;
+        margin-bottom: 20px;
+      }
+      .romance-title {
+        font-size: 11px;
+        color: #d84040;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+        font-family: monospace;
+      }
+      .romance-desc {
+        font-size: 13px;
+        color: #d0c8b0;
+        line-height: 1.7;
+      }
+
+      .romance-step {
+        margin-bottom: 12px;
+      }
+      .romance-btn {
+        width: 100%;
+        text-align: left;
+        padding: 13px 18px;
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s;
+      }
+      .romance-btn.open {
+        background: #a8202818;
+        border-color: #a82028;
+        border-radius: 4px 4px 0 0;
+      }
+      .romance-num {
+        width: 32px;
+        height: 32px;
+        border: 2px solid #a82028;
+        background: #a8202822;
+        border-radius: 50%;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #d84040;
+        font-weight: 700;
+      }
+      .romance-step-title {
+        font-size: 14px;
+        color: #d84040;
+        font-style: italic;
+      }
+      .romance-step-sub {
+        font-size: 11px;
+        color: #282010;
+        font-family: monospace;
+      }
+      .romance-step-arrow {
+        color: #a82028;
+        margin-left: auto;
+      }
+
+      .romance-body {
+        background: #a8202808;
+        border: 1px solid #a8202844;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        padding: 14px 18px;
+        display: none;
+      }
+      .romance-body.open {
+        display: block;
+      }
+      .romance-action {
+        font-size: 13px;
+        color: #7a6840;
+        margin-bottom: 12px;
+        font-style: italic;
+      }
+      .romance-choice {
+        padding: 8px 12px;
+        margin-bottom: 5px;
+        font-size: 13px;
+        color: #d0c8b0;
+        line-height: 1.5;
+        border-left: 3px solid #a8202866;
+        background: #a8202808;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .romance-failsafe {
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        padding: 16px;
+        margin-top: 8px;
+      }
+      .romance-failsafe-title {
+        font-size: 11px;
+        color: #c8a028;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+        font-family: monospace;
+      }
+      .romance-failsafe-body {
+        font-size: 13px;
+        color: #7a6840;
+        line-height: 1.7;
+      }
+
+      /* ── TROPHIES ─────────────────────────────────────────── */
+      .trophy-filters {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        padding: 4px 12px;
+        font-size: 11px;
+        font-family: inherit;
+        border: 1px solid #141428;
+        background: #07070f;
+        color: #7a6840;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-btn.active {
+        border-color: #c8a028;
+        background: #4a380860;
+        color: #e8c848;
+      }
+
+      .trophy-item {
+        margin-bottom: 5px;
+      }
+      .trophy-btn {
+        width: 100%;
+        text-align: left;
+        padding: 10px 14px;
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.15s;
+      }
+      .trophy-btn.open {
+        border-radius: 4px 4px 0 0;
+      }
+      .trophy-icon {
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .trophy-meta {
+        flex: 1;
+        min-width: 0;
+      }
+      .trophy-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 2px;
+        align-items: center;
+      }
+      .trophy-badge {
+        font-size: 9px;
+        padding: 1px 7px;
+        letter-spacing: 1px;
+        font-family: monospace;
+      }
+      .trophy-name {
+        font-size: 13px;
+        font-style: italic;
+      }
+      .trophy-engname {
+        font-size: 10px;
+        color: #282010;
+        font-style: italic;
+      }
+      .trophy-arrow {
+        color: #282010;
+        flex-shrink: 0;
+        font-size: 12px;
+      }
+
+      .trophy-body {
+        border: 1px solid;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        padding: 10px 14px;
+        font-size: 13px;
+        line-height: 1.7;
+        display: none;
+        color: #d0c8b0;
+      }
+      .trophy-body.open {
+        display: block;
+      }
+
+      /* ── TIPS ─────────────────────────────────────────────── */
+      .tip-card {
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        padding: 16px;
+        margin-bottom: 10px;
+        border-left: 3px solid #c8a02855;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .tip-icon {
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+      .tip-title {
+        font-size: 14px;
+        color: #e8c848;
+        font-style: italic;
+        margin-bottom: 5px;
+      }
+      .tip-desc {
+        font-size: 13px;
+        color: #7a6840;
+        line-height: 1.6;
+      }
+
+      .miss-ref-card {
+        background: #07070f;
+        border: 1px solid #141428;
+        border-radius: 4px;
+        padding: 16px;
+        margin-top: 6px;
+      }
+      .miss-ref-title {
+        font-size: 11px;
+        color: #d84040;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+        font-family: monospace;
+      }
+      .miss-ref-row {
+        display: grid;
+        grid-template-columns: 24px 100px 1fr;
+        gap: 8px;
+        padding: 6px 0;
+        align-items: center;
+        border-bottom: 1px solid #141428;
+      }
+      .miss-ref-row:last-child {
+        border-bottom: none;
+      }
+      .miss-ref-icon {
+        font-size: 14px;
+      }
+      .miss-ref-session {
+        font-size: 11px;
+        color: #7a6840;
+        font-family: monospace;
+      }
+      .miss-ref-name {
+        font-size: 12px;
+        color: #d84040;
+        font-style: italic;
+      }
+
+      /* ── FOOTER ───────────────────────────────────────────── */
+      .site-footer {
+        text-align: center;
+        margin-top: 48px;
+        font-size: 10px;
+        color: #282010;
+        letter-spacing: 3px;
+        font-family: monospace;
+        line-height: 1.8;
+      }
+      .side-img.left {
+        position: fixed;
+        left: 1300px;
+        bottom: 20px;
+        width: 500px;
+        height: 500px;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.9;
+        filter: drop-shadow(-5px 0 20px rgba(0, 0, 0, 0.8));
+      }
+
+      @media (max-width: 500px) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .session-btn {
+          padding: 11px 12px;
+        }
+        .miss-ref-row {
+          grid-template-columns: 24px 80px 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wallpaper"></div>
+
+    <div class="gold-line"></div>
+
+    <div class="wrap">
+      <!-- ── HEADER ── -->
+      <header class="site-header">
+        <div class="header-studio">Pendula · Microids · 2021 — Inspirado no clássico de 1958</div>
+        <div class="header-title"><img src="Images/LOGO.png" alt="Logo" class="logo" /></div>
+        <div class="header-sub">GUIA DE PLATINA · PT-BR</div>
+        <div class="header-badges">
+          <span
+            class="hbadge"
+            style="border: 1px solid #28a85855; background: #28a85812; color: #28a858"
+            >2/10 DIFICULDADE</span
+          >
+          <span
+            class="hbadge"
+            style="border: 1px solid #c8a02855; background: #c8a02812; color: #c8a028"
+            >1 JOGATINA</span
+          >
+          <span
+            class="hbadge"
+            style="border: 1px solid #9090b055; background: #9090b012; color: #9090b0"
+            >5-6H OTIMIZADO</span
+          >
+          <span
+            class="hbadge"
+            style="border: 1px solid #a8202855; background: #a8202812; color: #a82028"
+            >10 PERDÍVEIS</span
+          >
+          <span
+            class="hbadge"
+            style="border: 1px solid #e8d8b055; background: #e8d8b012; color: #e8d8b0"
+            >32 TROFÉUS</span
+          >
+          <span
+            class="hbadge"
+            style="border: 1px solid #28a85855; background: #28a85812; color: #28a858"
+            >58% PLATINA (COMUM)</span
+          >
+        </div>
+      </header>
+
+      <!-- ── TABS ── -->
+      <nav class="tabs-wrap">
+        <button class="tab-btn active" onclick="showTab('overview', this)">🎬 Visão Geral</button>
+        <button class="tab-btn" onclick="showTab('route', this)">🗺️ Roteiro por Sessão</button>
+        <button class="tab-btn" onclick="showTab('romance', this)">💕 Romance (4 Etapas)</button>
+        <button class="tab-btn" onclick="showTab('trophies', this)">🏅 Troféus</button>
+        <button class="tab-btn" onclick="showTab('tips', this)">💡 Dicas</button>
+      </nav>
+
+      <!-- ══ OVERVIEW ══ -->
+      <div id="panel-overview" class="panel active">
+        <div class="stats-grid" id="stats-grid"></div>
+
+        <div class="diff-card">
+          <div class="section-label" style="color: #c8a028">Dificuldade da Platina</div>
+          <div class="diff-bars">
+            <div class="diff-bar active"></div>
+            <div class="diff-bar active"></div>
+            <div class="diff-bar"></div>
+            <div class="diff-bar"></div>
+            <div class="diff-bar"></div>
+            <div class="diff-bar"></div>
+            <div class="diff-bar"></div>
+            <div class="diff-bar"></div>
+            <div class="diff-bar"></div>
+            <div class="diff-bar"></div>
+          </div>
+          <div class="diff-labels">
+            <span>1 TRIVIAL</span>
+            <span style="color: #28a858">2/10 — MUITO FÁCIL</span>
+            <span>10 BRUTAL</span>
+          </div>
+          <div class="diff-text">
+            A única dificuldade está nos
+            <strong style="color: #d84040">10 troféus perdíveis</strong>. O jogo possui
+            <strong style="color: #e8c848">Chapter Select completo</strong> — qualquer perdível pode
+            ser recuperado sem refazer todo o jogo. O troféu
+            <strong style="color: #d84040">Romance</strong> é o único que requer múltiplas etapas ao
+            longo de capítulos diferentes.
+          </div>
+        </div>
+
+        <div
+          class="info-card"
+          style="background: #28a85828; border-color: #28a85844; border-left-color: #28a858"
+        >
+          <div class="info-card-title" style="color: #28a858">✅ CHAPTER SELECT DISPONÍVEL</div>
+          <div class="info-card-body">
+            Alfred Hitchcock: Vertigo tem um Chapter Select robusto que permite retornar a qualquer
+            capítulo. Troféus perdíveis podem ser recuperados sem recomeçar do início. Isso torna a
+            platina muito mais acessível.
+          </div>
+        </div>
+
+        <div
+          class="info-card"
+          style="
+            background: #38081022;
+            border-color: #a8202844;
+            border-left-color: #a82028;
+            margin-bottom: 14px;
+          "
+        >
+          <div class="info-card-title" style="color: #d84040">⚠ TROFÉUS QUE EXIGEM ATENÇÃO</div>
+          <div class="miss-item">
+            <span class="miss-icon">💕</span>
+            <div>
+              <div class="miss-title">Romance (4 etapas)</div>
+              <div class="miss-desc">
+                O mais complexo. Requer escolhas específicas em 4 momentos distribuídos pela Sessão
+                4 até o final. Ver aba dedicada.
+              </div>
+            </div>
+          </div>
+          <div class="miss-item">
+            <span class="miss-icon">🏴‍☠️</span>
+            <div>
+              <div class="miss-title">Miniaturas (Figurines)</div>
+              <div class="miss-desc">
+                Encontre TODOS os espiões do Capitão Roberts na área exterior — ANTES de falar com o
+                pai de Ed.
+              </div>
+            </div>
+          </div>
+          <div class="miss-item">
+            <span class="miss-icon">🤝</span>
+            <div>
+              <div class="miss-title">Mão (Hand)</div>
+              <div class="miss-desc">
+                PRIMEIRO momento perdível: mantenha a mão de Julia levantada (△) até Ed apertar no
+                início do jogo.
+              </div>
+            </div>
+          </div>
+          <div class="miss-item" style="border-bottom: none">
+            <span class="miss-icon">🏀</span>
+            <div>
+              <div class="miss-title">MVP</div>
+              <div class="miss-desc">
+                Após descer da treehouse, interaja com a bola de basquete IMEDIATAMENTE — antes de
+                qualquer outra coisa.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="source-card">
+          <div class="section-label" style="color: #c8a028">✦ FONTES DE REFERÊNCIA</div>
+          <div class="source-item">
+            ✦ Exophase — Troféus Oficiais:
+            <span class="source-url">exophase.com/game/alfred-hitchcock-vertigo-psn/trophies/</span>
+          </div>
+          <div class="source-item">
+            ✦ PSNProfiles — Guia Completo:
+            <span class="source-url"
+              >psnprofiles.com/guide/21282-alfred-hitchcock-vertigo-trophy-guide</span
+            >
+          </div>
+          <div class="source-item">
+            ✦ YouTube — Guia 100% Perdíveis + All Trophies:
+            <span class="source-url">youtube.com/watch?v=Wk4yzFniIfI</span>
+          </div>
+          <div class="source-item">
+            ✦ Steam Guide EN/RU — Cronológico:
+            <span class="source-url"
+              >steamcommunity.com/sharedfiles/filedetails/?id=2687959331</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ ROUTE ══ -->
+      <div id="panel-route" class="panel">
+        <div class="progress-card">
+          <div class="progress-top">
+            <span class="progress-lbl">PROGRESSO DO CHECKLIST</span>
+            <span class="progress-count" id="prog-count">0/0</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar" id="prog-bar" style="width: 0%"></div>
+          </div>
+          <div class="progress-hint">Clique nos itens para marcar como concluído</div>
+        </div>
+        <div id="sessions-list"></div>
+      </div>
+
+      <!-- ══ ROMANCE ══ -->
+      <div id="panel-romance" class="panel">
+        <div class="romance-header">
+          <div class="romance-title">💕 TROFÉU ROMANCE — GUIA COMPLETO</div>
+          <div class="romance-desc">
+            O troféu <strong style="color: #e8c848">Romance</strong> é desbloqueado ao unir Julia e
+            Nick. São <strong style="color: #d84040">3 momentos-chave</strong> distribuídos ao longo
+            do <strong>Dia 2</strong>, mais a escolha decisiva no <strong>final do jogo</strong>. O
+            Chapter Select permite retornar e corrigir qualquer etapa sem refazer o jogo todo. A
+            chave é sempre escolher <em>confiança e colaboração</em> entre Julia e Nick — nunca
+            confronto ou desconfiança.
+          </div>
+        </div>
+        <div id="romance-steps"></div>
+        <div class="romance-failsafe">
+          <div class="romance-failsafe-title">💡 DICAS E RECUPERAÇÃO</div>
+          <div class="romance-failsafe-body">
+            <strong style="color: #e8c848">Se errar uma etapa:</strong> Use o Chapter Select para
+            retornar ao início do capítulo que errou. O progresso das etapas anteriores é mantido —
+            você não precisa refazer o jogo inteiro.<br /><br />
+            <strong style="color: #e8c848">Etapa mais fácil de perder:</strong> O jantar no
+            Restaurante (Etapa 2) — se Nick mencionar fome e você não perguntar sobre comer fora, a
+            oportunidade passa.<br /><br />
+            <strong style="color: #e8c848">A escolha final (Etapa 4)</strong> de dizer que está
+            saindo de Lou é a mais importante — sem ela, o troféu não desbloqueia mesmo com as
+            outras etapas corretas.<br /><br />
+            <strong style="color: #d84040">Nunca escolha:</strong> opções de desconfiança, confronto
+            ou hostilidade entre Julia e Nick em nenhum momento do Dia 2.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ TROPHIES ══ -->
+      <div id="panel-trophies" class="panel">
+        <div class="trophy-filters">
+          <button class="filter-btn active" onclick="setFilter('all', this)">Todos (32)</button>
+          <button class="filter-btn" onclick="setFilter('miss', this)">⚠️ Perdíveis (10)</button>
+          <button class="filter-btn" onclick="setFilter('auto', this)">✅ Automáticos (18)</button>
+        </div>
+        <div id="trophy-list"></div>
+      </div>
+
+      <!-- ══ TIPS ══ -->
+      <div id="panel-tips" class="panel">
+        <div id="tips-list"></div>
+        <div class="miss-ref-card">
+          <div class="miss-ref-title">⚠ REFERÊNCIA RÁPIDA — 14 PERDÍVEIS EM ORDEM</div>
+          <div id="miss-ref-list"></div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="site-footer">
+        <div class="side-img left"><img src="./Images/IMAGE01.png" /></div>
+        ✦ ALFRED HITCHCOCK: VERTIGO · GUIA DE PLATINA PT-BR · 32 TROFÉUS · 2/10 · 1 JOGATINA ✦<br />
+        EXOPHASE.COM/GAME/ALFRED-HITCHCOCK-VERTIGO-PSN/TROPHIES/ · PSNPROFILES.COM
+      </div>
+    </div>
+    <!-- /wrap -->
+
+    <script>
+      // ── DATA ──────────────────────────────────────────────────
+
+      const TROPHIES = [
+        // ── PLATINA ──
+        {
+          id: 'plat',
+          eng: 'Thief',
+          ptbr: 'Ladrão (Platina)',
+          type: 'platinum',
+          icon: '🏆',
+          miss: false,
+          session: '—',
+          chapter: '—',
+          how: "Automático ao obter todos os 31 outros troféus. O nome do troféu platina é 'Thief' (Ladrão) na versão original.",
+        },
+        // ── OUROS ──
+        {
+          id: 'one',
+          eng: 'One',
+          ptbr: 'Um (1ª Sessão)',
+          type: 'gold',
+          icon: '1️⃣',
+          miss: false,
+          session: 'Dia 1',
+          chapter: 'Manhã — Fim da Sessão 1',
+          how: 'Complete a 1ª sessão de hipnoterapia de Ed com Julia. Acontece na manhã do Dia 1. Automático ao concluir o capítulo.',
+        },
+        {
+          id: 'two',
+          eng: 'Two',
+          ptbr: 'Dois (2ª Sessão)',
+          type: 'gold',
+          icon: '2️⃣',
+          miss: false,
+          session: 'Dia 1',
+          chapter: 'Tarde — Fim da Sessão 2',
+          how: 'Complete a 2ª sessão de hipnoterapia de Ed. Acontece no Dia 1 após a pausa do almoço (onde fica a Pedra/Stone). Automático.',
+        },
+        {
+          id: 'three',
+          eng: 'Three',
+          ptbr: 'Três (3ª Sessão)',
+          type: 'gold',
+          icon: '3️⃣',
+          miss: false,
+          session: 'Dia 1',
+          chapter: 'Fim da tarde — Fim da Sessão 3',
+          how: 'Complete a 3ª sessão de hipnoterapia de Ed. Dia 1, sessão da tarde com os flashbacks da infância de Ed. Automático.',
+        },
+        {
+          id: 'four',
+          eng: 'Four',
+          ptbr: 'Quatro (4ª Sessão)',
+          type: 'gold',
+          icon: '4️⃣',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Manhã do Dia 2 — Fim da Sessão 4',
+          how: 'Complete a 4ª sessão de hipnoterapia de Ed. Começa no Dia 2 (manhã), inclui os flashbacks de Julia com Nick. Automático.',
+        },
+        {
+          id: 'five',
+          eng: 'Five',
+          ptbr: 'Cinco (5ª Sessão)',
+          type: 'gold',
+          icon: '5️⃣',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Tarde do Dia 2 — Fim da Sessão 5',
+          how: 'Complete a 5ª sessão de hipnoterapia de Ed. Dia 2 (tarde/noite), o capítulo mais denso em revelações. Automático.',
+        },
+        {
+          id: 'vertigo',
+          eng: 'Vertigo',
+          ptbr: 'Vertigem',
+          type: 'gold',
+          icon: '🌀',
+          miss: false,
+          session: 'Final',
+          chapter: 'Clímax — Salvar Esther e Jenny',
+          how: 'Supere a vertigem e salve Esther Franklin e Jenny. Cena climática e final do jogo. Automático ao completar.',
+        },
+        // ── PRATAS ──
+        {
+          id: 'melody',
+          eng: 'Melody',
+          ptbr: 'Melodia',
+          type: 'silver',
+          icon: '🎵',
+          miss: false,
+          session: 'Dia 1',
+          chapter: 'Flashback Ed — Noite com Faye',
+          how: 'Ouça a canção de Faye até o fim. No flashback do Dia 1 (Ed em casa com Faye), a sequência começa quando Faye se aproxima do armário e fala sobre uma canção. Siga TODOS os QTEs durante a cena musical até o beijo. Não interrompa. Automático após o último QTE.',
+        },
+        {
+          id: 'support',
+          eng: 'Support',
+          ptbr: 'Apoio',
+          type: 'silver',
+          icon: '📞',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Hotel — Julia ao telefone com Robert',
+          how: "Conforte Robert. Julia está no quarto do hotel no Dia 2. Interaja com o telefone fixo, depois com o tablet (faça as análises) e por fim o celular. Robert vai ligar — responda com empatia. O troféu desbloqueia após o telefonema com a escolha 'Tu e Ed estavam próximos? / Isso é bom'.",
+        },
+        {
+          id: 'gun',
+          eng: 'Gun',
+          ptbr: 'Pistola',
+          type: 'silver',
+          icon: '🔫',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Carro acidentado de Ed no penhasco',
+          how: 'Encontre evidências contra Ed Miller. Nick Reyes e um policial vão ao penhasco onde o carro de Ed caiu. Explore o carro, abra o porta-luvas ao lado do volante e interaja com a pistola que cai. Automático após a descoberta.',
+        },
+        {
+          id: 'tree',
+          eng: 'Tree',
+          ptbr: 'Árvore',
+          type: 'silver',
+          icon: '🌳',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Passado de Julia e Nick — A Árvore',
+          how: 'Mergulhe no passado de Julia e Nick. Cena automática na noite do Dia 2 onde Julia e Nick relembram memórias na/sobre a árvore especial deles. Automático ao completar a cena.',
+        },
+        {
+          id: 'jenny',
+          eng: 'Jenny',
+          ptbr: 'Jenny (Filha de Ed)',
+          type: 'silver',
+          icon: '👨‍👧',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Investigação — confirmar filha de Ed',
+          how: 'Confirme a existência da filha de Ed Miller (Jenny). Durante a investigação do Dia 2, reúna as evidências necessárias. Automático ao completar a descoberta.',
+        },
+        {
+          id: 'stone',
+          eng: 'Stone',
+          ptbr: 'Pedra',
+          type: 'silver',
+          icon: '🪨',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Almoço — Julia vai ao lago (entre Sessão 1 e 2)',
+          how: "⚠️ PERDÍVEL: Após completar a Sessão 1 (troféu 'Um'), Julia tem uma pausa para o almoço. A idosa na cozinha vai conversar com Julia — responda suas perguntas. Depois vá até o lago/pier. Caminhe ATÉ O FINAL DO CAIS e olhe para a água — aparece um ponto de interação que abre uma memória de infância de Julia. NÃO avance para a Sessão 2 sem fazer isso.",
+        },
+        {
+          id: 'figurines',
+          eng: 'Figurines',
+          ptbr: 'Miniaturas (Espiões)',
+          type: 'silver',
+          icon: '🏴‍☠️',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Flashback Infância Ed — 3 locais no exterior',
+          how: '⚠️ PERDÍVEL: Encontre as 3 miniaturas dos espiões do Capitão Roberts ANTES de falar com o pai de Ed. Azul: saindo da treehouse, vire à ESQUERDA no cruzamento e vá até o final do cais no lago. Vermelha: volte ao cruzamento e siga para a DIREITA subindo a colina — a miniatura está sobre uma pedra à direita. Verde: entre na casa, suba as escadas, vá ao quarto de Ed e olhe na mesinha ao lado da cama. Só então fale com o pai.',
+        },
+        {
+          id: 'romance',
+          eng: 'Romance',
+          ptbr: 'Romance (Amor)',
+          type: 'silver',
+          icon: '💕',
+          miss: true,
+          session: 'Dias 1-2',
+          chapter: 'Múltiplos capítulos — do Dia 1 ao final',
+          how: "⚠️ PERDÍVEL MULTI-ETAPA: Una Julia e Nick romanticamente. Requer escolhas corretas em 3+ momentos-chave do jogo. Veja a aba 'Romance' para o guia completo detalhado.",
+        },
+        {
+          id: 'bff',
+          eng: 'BFF',
+          ptbr: 'BFF (Melhores Amigas)',
+          type: 'silver',
+          icon: '💀',
+          miss: false,
+          session: 'Final',
+          chapter: 'Cena climática final',
+          how: 'Mate Lisa Horowitz. Ocorre automaticamente durante a cena climática final do jogo. Sem ação necessária.',
+        },
+        {
+          id: 'canyon',
+          eng: 'Canyon',
+          ptbr: 'Canyon',
+          type: 'silver',
+          icon: '🚗',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Penhasco — carro de Ed',
+          how: 'Jogue o carro de Ed pelo penhasco. Cena automática durante a investigação do Dia 2 no penhasco.',
+        },
+        {
+          id: 'pliers',
+          eng: 'Pliers',
+          ptbr: 'Alicate',
+          type: 'silver',
+          icon: '🔧',
+          miss: false,
+          session: 'Final',
+          chapter: 'Cena final — Adam',
+          how: 'Convença Adam a te libertar. Durante a cena final de tensão com Adam, escolha as opções corretas de persuasão. Automático após sucesso.',
+        },
+        // ── BRONZES ──
+        {
+          id: 'scar',
+          eng: 'Scar',
+          ptbr: 'Cicatriz (Assento)',
+          type: 'bronze',
+          icon: '🪑',
+          miss: false,
+          session: 'Dia 1',
+          chapter: 'Início — Primeiro encontro Julia/Ed',
+          how: 'Sente-se na cadeira. Logo no início da Sessão 1 do Dia 1, quando Julia convida Ed a se sentar no quarto dele, interaja com a cadeira antes de prosseguir o diálogo.',
+        },
+        {
+          id: 'host',
+          eng: 'Host',
+          ptbr: 'Anfitriã (Bebida)',
+          type: 'bronze',
+          icon: '🥤',
+          miss: false,
+          session: 'Dia 1',
+          chapter: 'Durante Sessão 2 — oferecer água a Ed',
+          how: "Certifique-se de que Ed não fique com sede. Durante a 2ª sessão de hipnoterapia do Dia 1, interaja com o copo/jarra d'água para oferecer bebida a Ed quando o prompt aparecer. Simples e automático se você explorar a sala.",
+        },
+        {
+          id: 'restaurant',
+          eng: 'Restaurant',
+          ptbr: 'Restaurante',
+          type: 'bronze',
+          icon: '🍽️',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Após achar mochila de Faye — jantar com Nick',
+          how: "Jante no Mamma Louise. Após Julia e Nick encontrarem e inspecionarem a mochila de Faye na delegacia, Nick dirá que está com fome. Faça Julia perguntar 'Quer comer fora?' para ir ao Mamma Louise. Parte essencial da cadeia do Romance.",
+        },
+        {
+          id: 'flamingo',
+          eng: 'Flamingo',
+          ptbr: 'Flamingo',
+          type: 'bronze',
+          icon: '🦩',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Capítulo Veronica e Robert — quarto',
+          how: 'Despeça-se de um amigo de infância (flamingo de brinquedo). Assim que entrar no quarto do capítulo de Veronica/Robert no Dia 2, vire IMEDIATAMENTE à esquerda e procure um flamingo de brinquedo na superfície. Interaja com ele. É simples e não perdível — o capítulo não avança rápido.',
+        },
+        {
+          id: 'orphan',
+          eng: 'Orphan',
+          ptbr: 'Órfão (Libertar-se)',
+          type: 'bronze',
+          icon: '🚪',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Flashback final de Ed — influência do pai',
+          how: 'Livre-se da influência do pai de Ed. Parte do flashback emocional de Ed no Dia 2. Automático ao completar a sequência narrativa de resolução.',
+        },
+        {
+          id: 'engine',
+          eng: 'Engine',
+          ptbr: 'Motor (Carro)',
+          type: 'bronze',
+          icon: '🔩',
+          miss: false,
+          session: 'Dia 2',
+          chapter: 'Cena do carro — conserto',
+          how: 'Conserte um carro. Cena automática durante o Dia 2. Siga os QTEs para completar o conserto. Automático.',
+        },
+        {
+          id: 'hand',
+          eng: 'Hand',
+          ptbr: 'Mão',
+          type: 'bronze',
+          icon: '🤝',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'PRIMEIRÍSSIMA cena — casa de Ed',
+          how: "⚠️ PERDÍVEL — PRIMEIRO TROFÉU DO JOGO: Julia chega à casa de Ed, a mãe abre a porta, e Julia entra no quarto de Ed que está deitado na cama. Ed pergunta que tipo de médico Julia é enquanto ela estende a mão para cumprimentá-lo. Escolha 'Keep offering hand' / 'Manter a mão estendida' e aguarde Ed apertar. NÃO retire a mão antes disso.",
+        },
+        {
+          id: 'feed',
+          eng: 'Feed',
+          ptbr: 'Alimentar (Petronius)',
+          type: 'bronze',
+          icon: '🐱',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Flashback Ed — apartamento, gato com fome',
+          how: "⚠️ PERDÍVEL: No flashback de Ed em seu apartamento (Dia 1, Sessão 1). Ed está no computador escrevendo, o gato Petronius mia e Ed desce as escadas para a cozinha. Mova o stick para baixo para ENCHER A TIGELA COMPLETAMENTE. A campainha vai tocar — IGNORE. Escolha 'Fill bowl' / 'Encher a tigela' e termine antes de ir à porta. Troféu ativa ao terminar de encher.",
+        },
+        {
+          id: 'blanket',
+          eng: 'Blanket',
+          ptbr: 'Cobertor (Faye)',
+          type: 'bronze',
+          icon: '🛋️',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Flashback Ed — Faye adormece no sofá',
+          how: "⚠️ PERDÍVEL: No flashback do Dia 1 (logo após Alimentar). Faye chegou ferida, Ed a tratou com gelo e ela adormece no sofá tremendo de frio. Vá ao sofá À SUA ESQUERDA — tem um cobertor com o Petronius em cima. Escolha 'Make Petronius move' / 'Afastar o gato' e depois cubra Faye. O troféu ativa depois que Ed cobre Faye.",
+        },
+        {
+          id: 'mvp',
+          eng: 'MVP',
+          ptbr: 'MVP (Basquete)',
+          type: 'bronze',
+          icon: '🏀',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Flashback Infância Ed — após sair da treehouse',
+          how: '⚠️ PERDÍVEL: No flashback da infância de Ed (Dia 1, Sessão 3). Após sair/descer da treehouse, caminhe para TRÁS DO GALPÃO BRANCO (lado oposto ao cruzamento). Na parede dos fundos há uma bola de basquete. Interaja com ela e complete o QTE (mova o stick para baixo, depois pressione R2/RT rapidamente). Se falhar, vá ao menu → Carregar → Máximo progresso. Faça ANTES de ir ao cruzamento.',
+        },
+        {
+          id: 'brotherhood',
+          eng: 'Brotherhood',
+          ptbr: 'Irmandade dos Piratas',
+          type: 'bronze',
+          icon: '🤜',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Flashback Infância Ed — primeiro diálogo com o pai',
+          how: '⚠️ PERDÍVEL: No flashback da infância, quando Ed entra na casa e encontra o pai pela primeira vez, não erre NENHUM QTE do aperto de mão secreto da Irmandade dos Piratas. Dica: faça isso DEPOIS de MVP e Miniaturas. Salve antes de entrar na casa — se falhar nos QTEs, recarregue.',
+        },
+        {
+          id: 'groceries',
+          eng: 'Groceries',
+          ptbr: 'Compras (Ajudar a mãe)',
+          type: 'bronze',
+          icon: '🛒',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Flashback Infância Ed — mãe chega com compras',
+          how: '⚠️ PERDÍVEL: No flashback da infância, quando a mãe de Ed pede ajuda para guardar as compras, faça-o RAPIDAMENTE sem erros. Itens: Alface → geladeira; Pão → mesinha pequena perto da janela (atrás da mãe); Papel toalha → mesa dentro da despensa (pelo corredor); Lata de sopa → armário ao lado da porta da despensa. Memorize os locais antes de começar.',
+        },
+        {
+          id: 'feast',
+          eng: 'Feast',
+          ptbr: 'Banquete (Frankie)',
+          type: 'bronze',
+          icon: '🥕',
+          miss: true,
+          session: 'Dia 1',
+          chapter: 'Flashback Nick — celeiro do rancho Franklin',
+          how: "⚠️ PERDÍVEL: Durante a visita de Nick ao rancho Franklin (Dia 1, Sessão 3). Entre no celeiro — à ESQUERDA há uma baia com um CAVALO com fome chamado Frankie Laine. Pegue as 3 CENOURAS da cesta encostada na baia. PRIMEIRO dê as cenouras, DEPOIS gire a torneira d'água. Se regar antes de dar as cenouras, o troféu é perdido.",
+        },
+        {
+          id: 'samuel',
+          eng: 'Sam',
+          ptbr: 'Samuel (Franklin)',
+          type: 'bronze',
+          icon: '🔍',
+          miss: false,
+          session: 'Dia 1',
+          chapter: 'Fazenda Franklin — primeiro acesso',
+          how: 'Encontre Samuel Franklin. Na fazenda Franklin (Dia 1, Sessão 3 como Nick): explore o celeiro (inclui a cena do baú de feno no alto), receba o chamado de rádio e vá à casa. Explore a cozinha (mesa, jarro de dinheiro), siga a música pelo corredor, entre no banheiro à direita, depois no quarto das crianças à esquerda, volte e abra o armário verde no fundo do corredor, desça ao porão e puxe a lona no chão. Automático ao encontrar Samuel.',
+        },
+      ];
+
+      const ROMANCE_STEPS = [
+        {
+          n: 1,
+          when: "Dia 2 — Noite (Capítulo 'Tree' / Árvore)",
+          location: 'Julia e Nick revisitam a árvore deles — memória compartilhada',
+          action:
+            'É a noite do Dia 2. Julia e Nick vão até a árvore especial deles. Esta é a primeira grande cena emocional entre os dois. Escolhas aqui constroem a base do romance.',
+          choices: [
+            'Durante toda a conversa na árvore, escolha opções que demonstrem confiança mútua entre Julia e Nick.',
+            "Evite respostas de confronto ou desconfiança — o jogo chama atenção quando os dois se 'ajudam'.",
+            'Esta cena termina com um flashback compartilhado. Deixe a narrativa fluir até o fim.',
+          ],
+          trophy: "🌳 Troféu 'Árvore' (Tree) é desbloqueado aqui — automático.",
+        },
+        {
+          n: 2,
+          when: 'Dia 2 — Após encontrar a mochila de Faye na delegacia',
+          location: 'Delegacia de polícia — depósito de pertences de Faye',
+          action:
+            'Julia e Nick inspecionam a mochila de Faye no depósito da delegacia. Após terminar a investigação dos itens, Nick dirá que está com fome. Este é o momento decisivo para o Restaurante.',
+          choices: [
+            'Quando Nick mencionar que está com fome, faça Julia perguntar se ele quer jantar fora.',
+            'Aceite ir ao Mamma Louise — este jantar é OBRIGATÓRIO para o Romance.',
+            'Durante o jantar, mantenha o tom leve e amigável. Não force conversas difíceis.',
+          ],
+          trophy: "🍽️ Troféu 'Restaurante' é desbloqueado aqui.",
+        },
+        {
+          n: 3,
+          when: 'Dia 2 — IML / Cena com Robert na morgue',
+          location: 'Instituto Médico Legal — Julia e Nick com Robert',
+          action:
+            'Julia e Nick vão ao IML (morgue) para lidar com informações sobre Faye. Robert também está presente. É uma cena emocional pesada onde Julia e Nick precisam se apoiar mutuamente.',
+          choices: [
+            'Durante a conversa com Robert na morgue, escolha opções onde Julia e Nick trabalhem JUNTOS.',
+            'Não dê opções que coloquem Julia e Nick em lados opostos ou gerem conflito entre eles.',
+            'A chave é mostrar que Julia e Nick formam um time — respostas colaborativas.',
+          ],
+          trophy: 'Sem troféu específico aqui, mas é parte crítica da cadeia do Romance.',
+        },
+        {
+          n: 4,
+          when: 'Final do jogo — após o beijo de Julia e Nick',
+          location: 'Cena climática — imediatamente após o beijo',
+          action:
+            'Após Julia e Nick se beijarem na cena final, Nick falará com Julia sobre o relacionamento dela com Lou (namorado/parceiro de Julia). Este é o momento derradeiro do troféu Romance.',
+          choices: [
+            'Quando Nick perguntar sobre Lou, diga a Nick que você está SAINDO / se separando de Lou.',
+            "Esta escolha confirma que Julia está escolhendo Nick — o troféu 'Romance' desbloqueia AQUI.",
+            'Se errar esta cena: use Chapter Select para retornar ao capítulo final e refazer apenas esta escolha.',
+          ],
+          trophy: "💕 Troféu 'Romance' desbloqueia aqui — a escolha decisiva.",
+        },
+      ];
+
+      const SESSION_ORDER = [
+        {
+          n: 'ANTES de começar — Leia isso',
+          color: '#c8a028',
+          icon: '📋',
+          items: [
+            '📌 O jogo se passa em 2 dias narrativos (Dia 1 e Dia 2), estruturados como 5 sessões de hipnoterapia de Ed + cenas de investigação de Nick/Julia.',
+            '⚠️ O jogo tem Chapter Select — qualquer troféu perdível pode ser recuperado sem nova jogatina completa.',
+            "⚠️ Troféu 'Romance' requer escolhas corretas em 3+ momentos distribuídos ao longo do Dia 2 — acompanhe a aba Romance.",
+            '✓ Estratégia: jogar devagar, colhendo os perdíveis em ordem, resulta em platina em 1 jogatina (~6-8h).',
+            '✓ Se errar um QTE (MVP, Irmandade, Compras): vá ao menu → Carregar → Máximo Progresso para tentar de novo.',
+          ],
+        },
+        {
+          n: 'DIA 1 · Manhã — Sessão 1 · Julia chega à casa de Ed',
+          color: '#9090b0',
+          icon: '🤝',
+          items: [
+            '🌅 CONTEXTO: Julia Olsen (terapeuta) vai à casa de Ed Miller pela primeira vez. A mãe de Ed abre a porta. Julia sobe ao quarto onde Ed está deitado na cama.',
+            '🤝 [MÃO] ⚠️ PRIMEIRO PERDÍVEL: Ed pergunta que tipo de médico Julia é enquanto ela estende a mão. Mantenha a mão estendida (△ / Keep offering hand) até Ed apertar — NÃO retire.',
+            "<img src='Images/TROFÉU01.png' class='step-img'>",
+            '🪑 [CICATRIZ/ASSENTO] Quando Julia convida Ed a se sentar, interaja com a cadeira antes de continuar o diálogo.',
+            '🌀 SESSÃO COMEÇA: Ed entra em hipnose e Julia acessa as memórias dele. Primeiro flashback: Ed em seu apartamento.',
+            '🐱 [ALIMENTAR] ⚠️ SEGUNDO PERDÍVEL: Flashback do apartamento: Ed no computador, Petronius mia. Ed desce à cozinha. Encha a tigela do gato COMPLETAMENTE antes de ir à porta. A campainha vai tocar — IGNORE.',
+            "<img src='Images/TROFÉU02.jpg' class='step-img'>",
+            '🛋️ [COBERTOR] ⚠️ TERCEIRA PERDÍVEL: Faye chega ferida ao apartamento. Ed a trata com gelo, Faye adormece tremendo. Vá ao sofá à ESQUERDA, afaste Petronius do cobertor e cubra Faye.',
+            "<img src='Images/TROFÉU03.jpg' class='step-img'>",
+            '🎵 [MELODIA] No mesmo flashback, mais tarde: Faye vai ao armário e começa a cantar. Siga TODOS os QTEs até o beijo. Não interrompa.',
+            '✓ [UM] Complete a 1ª sessão de hipnoterapia. Automático ao sair do flashback.',
+          ],
+        },
+        {
+          n: 'DIA 1 · Almoço — Pausa entre Sessão 1 e 2 · Julia vai ao lago',
+          color: '#4870c8',
+          icon: '🪨',
+          items: [
+            '🌞 CONTEXTO: Julia tem uma pausa para o almoço. A idosa na cozinha (cozinheira da família) conversa com Julia antes de ela sair.',
+            '💬 Responda as perguntas da idosa na cozinha (não há troféu, mas define contexto narrativo).',
+            '🪨 [PEDRA] ⚠️ QUARTO PERDÍVEL: Vá até o lago e caminhe até o FINAL DO CAIS. Olhe para baixo/água — aparece um ponto de interação. Ative-o para acessar uma memória de infância de Julia. NÃO pule isso.',
+            "<img src='Images/TROFÉU04.jpg' class='step-img'>",
+            '➡️ Retorne para a 2ª sessão após explorar o lago.',
+          ],
+        },
+        {
+          n: 'DIA 1 · Tarde — Sessão 2 · Flashbacks de Ed / Hotel Julia',
+          color: '#2848a8',
+          icon: '🌊',
+          items: [
+            '🌅 CONTEXTO: 2ª sessão de hipnoterapia. Julia acessa mais memórias de Ed. Paralelamente, vemos Julia no hotel à noite.',
+            "🥤 [ANFITRIÃ/BEBIDA] Durante a sessão, interaja com o copo ou jarra d'água disponível para oferecer bebida a Ed quando o prompt aparecer.",
+            "📞 [APOIO] ⚠️ Cena do hotel: Julia no quarto, Robert liga. Interaja com o telefone fixo, depois com o tablet (analise informações de Ed), depois atenda o celular quando Robert ligar. Responda com empatia: 'Tu e Ed estavam próximos? / Isso é bom' — troféu desbloqueia após o telefonema.",
+            '✓ [DOIS] Complete a 2ª sessão. Automático.',
+          ],
+        },
+        {
+          n: 'DIA 1 · Tarde — Sessão 3 · Infância de Ed + Nick no Rancho Franklin',
+          color: '#a82028',
+          icon: '🧒',
+          items: [
+            '🔴 ATENÇÃO: Esta é a sessão com MAIS perdíveis. Vá DEVAGAR.',
+            '🌅 CONTEXTO: Ed como criança (vestido de pirata) na treehouse. Nick Reyes vai ao rancho Franklin como sheriff.',
+            '🏀 [MVP] ⚠️ IMEDIATAMENTE ao sair da treehouse: vá para TRÁS DO GALPÃO BRANCO (não ao cruzamento). Há uma bola de basquete na parede dos fundos. Complete o QTE (stick ↓ depois R2/RT). Se falhar → menu → Carregar → Máximo Progresso.',
+            '🏴‍☠️ [MINIATURAS] ⚠️ QUINTO PERDÍVEL: ANTES de falar com o pai: encontre as 3 miniaturas. 🔵 Azul: cruzamento → esquerda → final do cais. 🔴 Vermelha: cruzamento → direita → topo da colina, pedra à direita. 🟢 Verde: entre na casa → suba → quarto de Ed → mesinha ao lado da cama.',
+            "<img src='Images/TROFÉU05.jpg' class='step-img'>",
+            "<img src='Images/TROFÉU06.jpg' class='step-img'>",
+            "<img src='Images/TROFÉU07.jpg' class='step-img'>",
+            '🤜 [IRMANDADE] ⚠️ SEXTO PERDÍVEL: Após coletar miniaturas, entre na casa e fale com o pai de Ed pela PRIMEIRA VEZ. Complete todos os QTEs do aperto de mão secreto sem errar. Salve antes se possível.',
+            '🛒 [COMPRAS] ⚠️ SÉTIMO PERDÍVEL: A mãe chega com compras e pede ajuda. Rapidamente: Alface → geladeira; Pão → mesinha pequena (atrás da mãe); Papel toalha → mesa da despensa; Lata de sopa → armário da despensa. -- 1 Foto: Leite e pão; 2 Foto: Toalhas de Papel; 3 Foto: Lata de Sopa',
+            "<img src='Images/TROFÉU08.jpg' class='step-img'>",
+            "<img src='Images/TROFÉU09.jpg' class='step-img'>",
+            "<img src='Images/TROFÉU10.jpg' class='step-img'>",
+            '🥕 [BANQUETE] ⚠️ OITAVO PERDÍVEL: Como Nick no celeiro do rancho Franklin: à esquerda, baia com o CAVALO Frankie Laine. Pegue 3 CENOURAS da cesta. Dê as cenouras PRIMEIRO, depois a água. Não inverta a ordem.',
+            "<img src='Images/TROFÉU11.jpg' class='step-img'>",
+            '🔍 [SAMUEL] Na fazenda como Nick: explore o celeiro todo (inclusive baú de feno no alto). Receba o rádio → vá à casa → cozinha (mesa + jarro de dinheiro) → siga a música → banheiro à direita → quarto infantil à esquerda → armário verde no corredor → porão → puxe a lona no chão.',
+            '🔫 [PISTOLA] Nick e um policial vão ao penhasco do carro de Ed. Abra o porta-luvas e interaja com a pistola. Automático.',
+            '✓ [TRÊS] Complete a 3ª sessão. Automático.',
+          ],
+        },
+        {
+          n: 'DIA 2 · Manhã — Sessão 4 · Flashbacks de Julia / Nick investiga',
+          color: '#c8a028',
+          icon: '💕',
+          items: [
+            '🌅 CONTEXTO: Dia 2. 4ª sessão de hipnoterapia. Julia acessa memórias mais profundas de Ed. Nick continua investigando. A relação Julia/Nick começa a se desenvolver romanticamente.',
+            '🥕 [BANQUETE] ⚠️ OITAVO PERDÍVEL: Como Nick no celeiro do rancho Franklin: à esquerda, baia com o CAVALO Frankie Laine. Pegue 3 CENOURAS da cesta. Dê as cenouras PRIMEIRO, depois a água. Não inverta a ordem.',
+            "🌳 [ÁRVORE] ⚠️ ROMANCE ETAPA 1: Na cena da árvore (Julia e Nick revisitam a árvore deles), escolha opções colaborativas e de confiança mútua. Deixe a cena fluir até o flashback compartilhado. Troféu 'Árvore' (Tree) é automático aqui. Escolha 'Trust me' e 'I trust you'",
+            "<img src='Images/TROFÉU12.png' class='step-img'>",
+            "<img src='Images/TROFÉU13.png' class='step-img'>",
+            '✓ [QUATRO] Complete a 4ª sessão. Automático.',
+          ],
+        },
+        {
+          n: 'DIA 2 · Tarde — Delegacia / Mochila de Faye / Restaurante',
+          color: '#c89028',
+          icon: '🍽️',
+          items: [
+            '🌅 CONTEXTO: Julia e Nick na delegacia analisam os pertences de Faye. Cena investigativa importante.',
+            '📦 Inspecione TODOS os itens da mochila de Faye no depósito.',
+            "🍽️ [RESTAURANTE] ⚠️ ROMANCE ETAPA 2: Após inspecionar a mochila, Nick diz que está com fome. Faça Julia perguntar 'Quer comer fora?' → vão ao Mamma Louise. OBRIGATÓRIO para o Romance. Escolha 'Want to seat out?'",
+            "<img src='Images/TROFÉU14.png' class='step-img'>",
+            '💬 Durante o jantar, mantenha tom leve e amigável entre Julia e Nick.',
+          ],
+        },
+        {
+          n: 'DIA 2 · Noite — IML / Morgue / Sessão 5 · Revelações finais',
+          color: '#2848a8',
+          icon: '⏮️',
+          items: [
+            '🌅 CONTEXTO: Julia e Nick vão ao IML com Robert. 5ª sessão de hipnoterapia — as maiores revelações sobre Ed, Jenny e os crimes.',
+            "🏛️ [ROMANCE ETAPA 3] ⚠️ Na cena do IML/morgue com Robert: escolha opções onde Julia e Nick TRABALHAM JUNTOS. Não os coloque em conflito. Respostas colaborativas são a chave. Escolha algo como 'Let Julia handle it' e 'Let Nick handle it'",
+            "<img src='Images/TROFÉU15.png' class='step-img'>",
+            "<img src='Images/TROFÉU16.png' class='step-img'>",
+            '🌳 [ÁRVORE] Troféu automático se ainda não foi obtido na Sessão 4.',
+            '🔩 [MOTOR] Cena de consertar um carro. Siga os QTEs. Automático.',
+            '🚗 [CANYON] Nick joga o carro de Ed pelo penhasco. Automático.',
+            '💀 [BFF] Mata Lisa Horowitz. Automático na cena climática.',
+            '🦩 [FLAMINGO] NONO PERDÍVEL: Ao entrar no quarto do capítulo Veronica/Robert, vire imediatamente à esquerda e interaja com o flamingo de brinquedo.',
+            "<img src='Images/TROFÉU17.png' class='step-img'>",
+            '🚪 [ÓRFÃO] Livre-se da influência do pai de Ed no flashback final. Automático.',
+            '🔧 [ALICATE] Convença Adam a te libertar. Escolha as opções corretas de persuasão.',
+            '👨‍👧 [JENNY] Confirme a existência de Jenny. Automático durante as revelações.',
+            '✓ [CINCO] Complete a 5ª sessão. Automático.',
+          ],
+        },
+        {
+          n: 'FINAL — Cena climática / Troféu Romance / Platina',
+          color: '#28a858',
+          icon: '🌀',
+          items: [
+            '🌀 [VERTIGEM] Supere a vertigem e salve Esther Franklin e Jenny. Cena final. Automático.',
+            "💕 [ROMANCE] ⚠️ ETAPA FINAL: Após Julia e Nick se beijarem, Nick pergunta sobre Lou. Diga que está saindo de Lou — troféu Romance desbloqueia AQUI. Escolha 'I´m leaving you'",
+            "<img src='Images/TROFÉU17.png' class='step-img'>",
+            '🏆 PLATINA (LADRÃO/THIEF) desbloqueada se todos os outros troféus foram obtidos!',
+            '⚠️ Se perdeu algum troféu: use Chapter Select → retorne ao capítulo específico.',
+          ],
+        },
+      ];
+
+      const TIPS = [
+        {
+          icon: '🎬',
+          t: 'Chapter Select — Sua Segurança',
+          d: 'O Chapter Select do jogo é robusto e gratuito. Se perder qualquer missável, retorne ao capítulo específico via menu principal → Chapter Select. O progresso dos troféus já obtidos é mantido.',
+        },
+        {
+          icon: '⏱️',
+          t: 'Ritmo do Jogo',
+          d: 'Vertigo é um jogo de narrativa lento e deliberado. Não apresse as cenas — muitos troféus requerem aguardar prompts específicos aparecerem. Fique atento a ícones de interação na tela.',
+        },
+        {
+          icon: '🏴‍☠️',
+          t: 'Miniaturas — Dica Crítica',
+          d: 'Explore TODA a área exterior durante o flashback da infância de Ed ANTES de falar com o pai. Caminhe por todos os cantos do quintal para encontrar as miniaturas. São pequenos objetos espalhados.',
+        },
+        {
+          icon: '🛒',
+          t: 'Compras — Seja Rápido',
+          d: 'Para o troféu Compras (Groceries), guarde todos os itens o mais rápido possível. Fique atento à área da mesa e armário. Errar demais ou ser muito lento pode fazer a mãe não cumprimentar.',
+        },
+        {
+          icon: '🐱',
+          t: 'Gato Petronius — Prioridade',
+          d: 'No primeiro flashback: quando a campainha tocar, IGNORE-A e termine de encher a tigela do gato primeiro. O jogo dá tempo suficiente — não se preocupe.',
+        },
+        {
+          icon: '💕',
+          t: 'Romance — Consistência',
+          d: 'Sempre escolha opções de confiança e gentileza entre Julia e Reyes. Se uma cena tem múltiplas opções, prefira sempre a mais positiva e colaborativa. Desconfiança quebra a sequência.',
+        },
+        {
+          icon: '🎭',
+          t: 'Sem Opções Erradas Fatais',
+          d: 'A maioria das escolhas no jogo não tem consequências permanentes — apenas o Romance e alguns perdíveis específicos requerem atenção. Explore com liberdade fora dos momentos marcados.',
+        },
+        {
+          icon: '📼',
+          t: 'Duração do Jogo',
+          d: 'O jogo dura ~5-6 horas em uma jogatina focada. É uma experiência narrativa curta — ideal para platinar em uma única tarde. Não há conteúdo de mundo aberto ou grind.',
+        },
+      ];
+
+      const STATS = [
+        { l: 'Total Troféus', v: '32', icon: '🏅', c: '#c8a028' },
+        { l: 'Platina', v: 'Sim ✓', icon: '🏆', c: '#e8c848' },
+        { l: 'Ouros', v: '6', icon: '🥇', c: '#c8a028' },
+        { l: 'Pratas', v: '9', icon: '🥈', c: '#9090b0' },
+        { l: 'Bronzes', v: '16', icon: '🥉', c: '#7a6840' },
+        { l: 'Tempo Casual', v: '6-8h', icon: '⏱️', c: '#605840' },
+        { l: 'Tempo Otimizado', v: '5-6h', icon: '⚡', c: '#28a858' },
+        { l: 'Dificuldade', v: '2/10', icon: '🎭', c: '#28a858' },
+        { l: 'Jogatinas', v: '1', icon: '🎬', c: '#c8a028' },
+        { l: 'Perdíveis', v: '10', icon: '⚠️', c: '#a82028' },
+      ];
+
+      const TYPE_STYLE = {
+        platinum: { bg: '#9b72cf33', border: '#9b72cf', label: 'PLATINA', text: '#c4a0f0' },
+        gold: { bg: '#c8a02833', border: '#c8a028', label: 'OURO', text: '#e8c848' },
+        silver: { bg: '#9090b033', border: '#9090b0', label: 'PRATA', text: '#b8b8d8' },
+        bronze: { bg: '#7a601833', border: '#7a6018', label: 'BRONZE', text: '#c0a050' },
+      };
+
+      // ── STATE ─────────────────────────────────────────────────
+
+      let openTrophy = null;
+      let openRomance = null;
+      let openSession = 0; // first session open by default
+      let filterMode = 'all';
+      let checked = {}; // key: "si-ii" → bool
+
+      // computed
+      const totalSteps = SESSION_ORDER.reduce((a, s) => a + s.items.length, 0);
+      const missableList = TROPHIES.filter((t) => t.miss);
+
+      // ── TAB SWITCH ────────────────────────────────────────────
+
+      function showTab(id, btn) {
+        document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+        document.getElementById('panel-' + id).classList.add('active');
+        btn.classList.add('active');
+      }
+
+      // ── RENDER STATS ──────────────────────────────────────────
+
+      function renderStats() {
+        const el = document.getElementById('stats-grid');
+        el.innerHTML = STATS.map(
+          (s) => `
+    <div class="stat-card" style="border-top:2px solid ${s.c}66">
+      <div class="stat-icon">${s.icon}</div>
+      <div class="stat-val" style="color:${s.c}">${s.v}</div>
+      <div class="stat-lbl">${s.l}</div>
+    </div>`
+        ).join('');
+      }
+
+      // ── RENDER SESSIONS (CHECKLIST) ───────────────────────────
+
+      function updateProgress() {
+        const done = Object.values(checked).filter(Boolean).length;
+        document.getElementById('prog-count').textContent = `${done}/${totalSteps}`;
+        document.getElementById('prog-bar').style.width = `${(done / totalSteps) * 100}%`;
+      }
+
+      function toggleStep(key) {
+        checked[key] = !checked[key];
+        renderSessions();
+        updateProgress();
+      }
+
+      function toggleSession(si) {
+        openSession = openSession === si ? -1 : si;
+        renderSessions();
+      }
+
+      function renderSessions() {
+        const el = document.getElementById('sessions-list');
+        el.innerHTML = SESSION_ORDER.map((s, si) => {
+          const isOpen = openSession === si;
+          const items = s.items
+            .map((item, ii) => {
+              const key = `${si}-${ii}`;
+              const isDone = !!checked[key];
+              const isMiss = item.startsWith('⚠️');
+              const bgColor = isDone ? '#28a85815' : isMiss ? '#a8202808' : `${s.color}06`;
+              const bdrColor = isDone ? '#28a858' : isMiss ? '#a82028' : s.color;
+              const txtColor = isDone ? '#28a858' : isMiss ? '#d84040' : '#d0c8b0';
+              const chkBorder = isDone ? '#28a858' : s.color;
+              const chkBg = isDone ? '#28a85833' : 'transparent';
+              const chkColor = isDone ? '#28a858' : s.color;
+              return `
+        <div class="step-row" onclick="toggleStep('${key}')"
+          style="background:${bgColor};border-color:${bdrColor}22">
+          <div class="step-checkbox" style="border-color:${chkBorder};background:${chkBg};color:${chkColor}">${isDone ? '✓' : ''}</div>
+          <span class="step-text" style="color:${txtColor}">${item}</span>
+        </div>`;
+            })
+            .join('');
+
+          return `
+    <div class="session-block">
+      <button class="session-btn${isOpen ? ' open' : ''}" onclick="toggleSession(${si})"
+        style="background:${isOpen ? s.color + '15' : '#07070f'};border-color:${isOpen ? s.color : '#141428'};${isOpen ? `box-shadow:0 0 8px ${s.color}44` : ''}" >
+        <div class="session-btn-left">
+          <span class="session-ico">${s.icon}</span>
+          <div>
+            <div class="session-name" style="color:${s.color}">${s.n}</div>
+            <div class="session-count">${s.items.length} ações</div>
+          </div>
+        </div>
+        <span class="session-arrow" style="color:${s.color}">${isOpen ? '▲' : '▼'}</span>
+      </button>
+      <div class="session-body${isOpen ? ' open' : ''}"
+        style="background:${s.color}08;border-color:${s.color}44;border-width:1px;border-style:solid">
+        ${items}
+      </div>
+    </div>`;
+        }).join('');
+        updateProgress();
+      }
+
+      // ── RENDER ROMANCE ────────────────────────────────────────
+
+      function toggleRomance(i) {
+        openRomance = openRomance === i ? null : i;
+        renderRomance();
+      }
+
+      function renderRomance() {
+        const el = document.getElementById('romance-steps');
+        el.innerHTML = ROMANCE_STEPS.map((s, i) => {
+          const isOpen = openRomance === i;
+          const choices = s.choices
+            .map(
+              (c, ci) => `
+      <div class="romance-choice">${ci + 1}. ${c}</div>`
+            )
+            .join('');
+          const trophyBadge = s.trophy
+            ? `
+      <div style="margin-top:10px;padding:7px 10px;background:#28a85815;border:1px solid #28a85844;border-radius:3px;font-size:12px;color:#28a858;font-family:monospace;letter-spacing:1px;">${s.trophy}</div>`
+            : '';
+          return `
+    <div class="romance-step">
+      <button class="romance-btn${isOpen ? ' open' : ''}" onclick="toggleRomance(${i})">
+        <div class="romance-num">${s.n}</div>
+        <div style="flex:1">
+          <div class="romance-step-title">Etapa ${s.n} de 4 — ${s.when}</div>
+          <div class="romance-step-sub">${s.location}</div>
+        </div>
+        <span class="romance-step-arrow">${isOpen ? '▲' : '▼'}</span>
+      </button>
+      <div class="romance-body${isOpen ? ' open' : ''}">
+        <div class="romance-action">${s.action}</div>
+        ${choices}
+        ${trophyBadge}
+      </div>
+    </div>`;
+        }).join('');
+      }
+
+      // ── RENDER TROPHIES ───────────────────────────────────────
+
+      function setFilter(mode, btn) {
+        filterMode = mode;
+        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTrophies();
+      }
+
+      function toggleTrophy(id) {
+        openTrophy = openTrophy === id ? null : id;
+        renderTrophies();
+      }
+
+      function renderTrophies() {
+        const list =
+          filterMode === 'miss'
+            ? TROPHIES.filter((t) => t.miss)
+            : filterMode === 'auto'
+              ? TROPHIES.filter((t) => !t.miss)
+              : TROPHIES;
+
+        const el = document.getElementById('trophy-list');
+        el.innerHTML = list
+          .map((t) => {
+            const ts = TYPE_STYLE[t.type];
+            const isOpen = openTrophy === t.id;
+            const borderColor = isOpen ? ts.border : '#141428';
+            const bgColor = isOpen ? ts.bg : '#07070f';
+            const missBadge = t.miss
+              ? `<span class="trophy-badge" style="background:#a8202822;border:1px solid #a8202844;color:#d84040">⚠ PERDÍVEL</span>`
+              : '';
+            const sessBadge = `<span class="trophy-badge" style="background:#c8a02815;border:1px solid #c8a02833;color:#c8a028">Sessão ${t.session}</span>`;
+            return `
+    <div class="trophy-item">
+      <button class="trophy-btn${isOpen ? ' open' : ''}" onclick="toggleTrophy('${t.id}')"
+        style="background:${bgColor};border-color:${borderColor};${isOpen ? `box-shadow:0 0 8px ${ts.border}33` : ''}">
+        <span class="trophy-icon">${t.icon}</span>
+        <div class="trophy-meta">
+          <div class="trophy-badges">
+            <span class="trophy-badge" style="background:${ts.bg};border:1px solid ${ts.border};color:${ts.text}">${ts.label}</span>
+            ${missBadge}
+            ${sessBadge}
+            <span class="trophy-name" style="color:${ts.text}">${t.ptbr}</span>
+          </div>
+          <div class="trophy-engname">${t.eng} · ${t.chapter}</div>
+        </div>
+        <span class="trophy-arrow">${isOpen ? '▲' : '▼'}</span>
+      </button>
+      <div class="trophy-body${isOpen ? ' open' : ''}"
+        style="background:${ts.border}08;border:1px solid ${ts.border}22;border-top:none">
+        ${t.how}
+      </div>
+    </div>`;
+          })
+          .join('');
+      }
+
+      // ── RENDER TIPS ───────────────────────────────────────────
+
+      function renderTips() {
+        const tips = document.getElementById('tips-list');
+        tips.innerHTML = TIPS.map(
+          (t) => `
+    <div class="tip-card">
+      <span class="tip-icon">${t.icon}</span>
+      <div>
+        <div class="tip-title">${t.t}</div>
+        <div class="tip-desc">${t.d}</div>
+      </div>
+    </div>`
+        ).join('');
+
+        const missRef = document.getElementById('miss-ref-list');
+        missRef.innerHTML = missableList
+          .map(
+            (m) => `
+    <div class="miss-ref-row">
+      <span class="miss-ref-icon">${m.icon}</span>
+      <span class="miss-ref-session">Sessão ${m.session}</span>
+      <span class="miss-ref-name">${m.ptbr}</span>
+    </div>`
+          )
+          .join('');
+      }
+
+      // ── INIT ──────────────────────────────────────────────────
+
+      renderStats();
+      renderSessions();
+      renderRomance();
+      renderTrophies();
+      renderTips();
+    </script>
+  </body>
+</html>
