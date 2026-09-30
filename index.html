@@ -805,6 +805,542 @@
           grid-template-columns: 24px 80px 1fr;
         }
       }
+
+      /* ── TEMA HITCHCOCK / DETETIVE (camada de override) ───────── */
+      .wallpaper {
+        background:
+          radial-gradient(ellipse at 50% 25%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.9) 85%),
+          linear-gradient(rgba(6, 4, 2, 0.7), rgba(3, 2, 1, 0.93)), url('Images/Wallpaper.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: grayscale(0.75) sepia(0.35) contrast(1.05);
+      }
+      .wallpaper::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.5;
+        background: repeating-linear-gradient(
+          115deg,
+          transparent 0 46px,
+          rgba(0, 0, 0, 0.35) 46px 92px
+        );
+      }
+      .wrap {
+        background: linear-gradient(180deg, rgba(6, 5, 3, 0.6), rgba(6, 5, 3, 0.86));
+        box-shadow:
+          0 0 0 1px #c8a02822,
+          0 0 80px #000;
+      }
+      .site-header {
+        position: relative;
+        isolation: isolate;
+      }
+      .site-header::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: -30px;
+        width: min(340px, 100%);
+        aspect-ratio: 1 / 1;
+        transform: translateX(-50%);
+        z-index: -1;
+        opacity: 0.16;
+        pointer-events: none;
+        background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23c8a028' stroke-width='1'><circle cx='100' cy='100' r='94'/><circle cx='104' cy='100' r='80'/><circle cx='100' cy='104' r='66'/><circle cx='96' cy='100' r='52'/><circle cx='100' cy='96' r='38'/><circle cx='103' cy='101' r='24'/><circle cx='100' cy='100' r='10'/></svg>") center / contain no-repeat;
+      }
+      .hbadge {
+        font-weight: 700;
+        text-shadow: 0 0 6px #000;
+        transform: rotate(-1deg);
+      }
+      .hbadge:nth-child(even) {
+        transform: rotate(1deg);
+      }
+      .tab-btn {
+        color: #a89868;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 11px;
+      }
+      .tab-btn.active {
+        background: linear-gradient(180deg, #c8a02826, transparent);
+        border-bottom-width: 3px;
+      }
+      .tabs-wrap {
+        border-bottom-color: #4a3c1c;
+      }
+      /* contraste das UIs "mortas" */
+      .header-studio,
+      .stat-lbl,
+      .diff-labels,
+      .progress-hint,
+      .session-count,
+      .romance-step-sub,
+      .trophy-engname,
+      .trophy-arrow,
+      .site-footer,
+      .source-url {
+        color: #9a8a60;
+      }
+      .header-brand,
+      .header-sub {
+        color: #b09a60;
+      }
+      .miss-desc,
+      .tip-desc,
+      .diff-text,
+      .romance-action,
+      .romance-failsafe-body {
+        color: #b8a878;
+      }
+      .stat-card,
+      .diff-card,
+      .progress-card,
+      .source-card,
+      .tip-card,
+      .miss-ref-card,
+      .romance-failsafe,
+      .filter-btn {
+        background: linear-gradient(180deg, #0e0c09, #080706);
+        border-color: #3a3020;
+      }
+      .filter-btn.active {
+        background: #4a380860;
+        border-color: #c8a028;
+      }
+      .miss-item,
+      .miss-ref-row {
+        border-bottom-color: #2a2418;
+      }
+      .diff-bar {
+        background: #2a2418;
+        box-shadow: inset 0 0 0 1px #3a3020;
+      }
+      .diff-bar.active {
+        background: #28a858;
+      }
+      .progress-bar-bg {
+        height: 7px;
+        background: #2a2418;
+      }
+      .step-checkbox {
+        border-width: 2px;
+      }
+      .session-btn:not(.open),
+      .trophy-btn:not(.open) {
+        background: linear-gradient(180deg, #0e0c09, #080706) !important;
+        border-color: #3a3020 !important;
+      }
+      .session-btn:not(.open):hover,
+      .trophy-btn:not(.open):hover,
+      .romance-btn:not(.open):hover {
+        border-color: #c8a028 !important;
+        box-shadow: 0 0 10px #c8a02833;
+      }
+      .step-row:hover {
+        border-color: #c8a02877 !important;
+      }
+      /* ── TROFÉUS (estrutura estilo Exophase) ──────────────────── */
+      .trophy-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .trophy-icon img {
+        width: 48px;
+        height: 48px;
+        display: block;
+        border-radius: 6px;
+        border: 1px solid #3a3020;
+        background: #000;
+      }
+      .trophy-desc {
+        font-size: 12px;
+        color: #d0c8b0;
+        line-height: 1.5;
+        margin-top: 3px;
+      }
+      .trophy-desc em {
+        display: block;
+        color: #a89868;
+        font-size: 11px;
+      }
+      .trophy-stats {
+        flex-shrink: 0;
+        text-align: right;
+        margin-right: 6px;
+        font-family: monospace;
+        font-size: 10px;
+        line-height: 1.5;
+        color: #b0a078;
+      }
+      .trophy-stats b {
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+        color: #e8c848;
+      }
+      .trophy-link {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 11px;
+        font-family: monospace;
+        letter-spacing: 1px;
+        color: #c8a028;
+        text-decoration: none;
+        border-bottom: 1px dotted #c8a02888;
+      }
+      @media (max-width: 500px) {
+        .trophy-stats span {
+          display: none;
+        }
+        .trophy-icon,
+        .trophy-icon img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+
+      /* ══ CAMINHOS — tokens de identidade (escopados em .cm-app; nada global) ══ */
+      .cm-app {
+        --bg: #0a0907;
+        --panel: #0e0c09;
+        --panel-2: #17130c;
+        --border: #3a3020;
+        --border-strong: #5a4a28;
+        --text: #d0c8b0;
+        --dim: #a89868;
+        --muted: #7a6c48;
+        --accent: #e8d8b0;
+        --ok: #28a858;
+        --warn: #e8c848;
+        --caution: #e8894a;
+        --danger: #d84040;
+        --alt: #9b72cf;
+        --trophy-rgb: 200, 160, 40;
+        --trophy: rgb(var(--trophy-rgb));
+        --trophy-light: #e8c848;
+        --font: 'Georgia', 'Times New Roman', serif;
+        --mono: monospace;
+        color: var(--text);
+        font-family: var(--font);
+        line-height: 1.5;
+      }
+      /* sem medidor e sem troféus na rota: a barra ficaria vazia */
+      .cm-hud:not(:has(> :not([hidden]))) {
+        display: none;
+      }
+      .cm-hud.cm-hud-vazio {
+        display: none;
+      }
+
+      /* ═══════════════════════════════════════════════════════════════
+         2. CAMINHOS — estrutura (tudo com prefixo .cm-)
+         ═══════════════════════════════════════════════════════════════ */
+      .cm-app {
+        --cm-node-w: 210px;
+        height: min(78vh, 720px);
+        min-height: 520px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--bg);
+        -webkit-tap-highlight-color: transparent;
+      }
+      .cm-app [hidden] { display: none !important; }
+      .cm-app button { font-family: inherit; }
+
+      /* ── Cabeçalho ─────────────────────────────────────────────── */
+      .cm-header {
+        background: var(--panel);
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        z-index: 10;
+      }
+      .cm-header-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+      .cm-title h2 { margin: 0; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+      .cm-title span { display: block; font-size: 0.65rem; font-weight: 700; color: var(--dim); letter-spacing: 0.04em; }
+
+      .cm-btn {
+        background: var(--panel-2);
+        border: 1px solid var(--border-strong);
+        color: var(--text);
+        padding: 4px 10px;
+        border-radius: 5px;
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+      }
+      .cm-btn:hover { border-color: var(--accent); }
+      .cm-btn-reset { color: var(--danger); border-color: rgba(216, 64, 64, 0.5); background: rgba(216, 64, 64, 0.1); }
+      .cm-btn-reset:hover { border-color: var(--danger); }
+
+      .cm-presets { display: flex; gap: 6px; flex-wrap: wrap; }
+      .cm-presets:empty { display: none; }
+      .cm-preset {
+        background: rgba(232, 216, 176, 0.08);
+        border: 1px solid rgba(232, 216, 176, 0.4);
+        color: var(--text);
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: 0.63rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+      .cm-preset:hover { background: rgba(232, 216, 176, 0.18); }
+      .cm-preset.is-active { background: var(--accent); color: #1a1408; border-color: var(--accent); }
+
+      .cm-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.62rem; color: var(--dim); }
+      .cm-legend-chip { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; }
+      .cm-legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+      .cm-chapter-row { display: flex; align-items: center; gap: 8px; }
+      .cm-chapter-row label { font-size: 0.6rem; font-weight: 700; color: var(--dim); letter-spacing: 0.08em; white-space: nowrap; }
+      .cm-chapter-row select {
+        flex: 1; min-width: 0;
+        background: var(--panel-2); color: var(--text);
+        border: 1px solid var(--border); border-radius: 5px;
+        padding: 5px 6px; font-family: var(--font); font-size: 0.72rem; font-weight: 700;
+        -webkit-appearance: none; appearance: none;
+      }
+      .cm-chapter-row select option:disabled { color: var(--muted); }
+
+      /* ── HUD: medidor + troféus da rota ────────────────────────── */
+      .cm-hud {
+        display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        background: var(--panel-2); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border);
+      }
+      .cm-meter { display: flex; align-items: center; gap: 8px; }
+      .cm-meter-label { font-size: 0.68rem; font-weight: 700; color: var(--dim); text-transform: uppercase; }
+      .cm-meter-bg { width: 90px; height: 8px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: 3px; overflow: hidden; }
+      .cm-meter-fill { height: 100%; width: 0; background: var(--ok); transition: width 0.4s ease-in-out, background 0.3s; }
+      .cm-meter-fill.tier-green { background: var(--ok); }
+      .cm-meter-fill.tier-yellow { background: var(--warn); }
+      .cm-meter-fill.tier-orange { background: var(--caution); }
+      .cm-meter-fill.is-critical { background: var(--danger); }
+      .cm-meter-val { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; min-width: 36px; }
+      .cm-meter-val.tier-green { color: var(--ok); }
+      .cm-meter-val.tier-yellow { color: var(--warn); }
+      .cm-meter-val.tier-orange { color: var(--caution); }
+      .cm-meter-val.is-critical { color: var(--danger); }
+      .cm-critical {
+        font-family: var(--mono); font-size: 0.6rem; font-weight: 700;
+        color: var(--danger); background: rgba(216, 64, 64, 0.12); border: 1px solid rgba(216, 64, 64, 0.45);
+        border-radius: 4px; padding: 1px 6px;
+      }
+      .cm-route-trophies { margin-left: auto; font-size: 0.66rem; font-weight: 700; color: var(--trophy-light); }
+
+      /* ── Palco (área rolável) ──────────────────────────────────── */
+      .cm-stage { flex: 1; position: relative; min-height: 0; }
+      .cm-workspace {
+        position: absolute; inset: 0;
+        overflow: auto;
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(rgba(232, 216, 176, 0.07) 1px, transparent 1px),
+          linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 20px 20px, 60px 60px, 60px 60px;
+        -webkit-overflow-scrolling: touch;
+        cursor: grab;
+        user-select: none; -webkit-user-select: none;
+      }
+      .cm-workspace.is-grabbing { cursor: grabbing; }
+
+      .cm-svg { position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1; }
+      .cm-edge { stroke: var(--border-strong); stroke-width: 2; fill: none; transition: stroke 0.3s; }
+      .cm-edge.active { stroke-width: 2.5; }
+      .cm-edge.tier-green { stroke: var(--ok); filter: drop-shadow(0 0 3px var(--ok)); }
+      .cm-edge.tier-yellow { stroke: var(--warn); filter: drop-shadow(0 0 3px var(--warn)); }
+      .cm-edge.tier-orange { stroke: var(--caution); filter: drop-shadow(0 0 3px var(--caution)); }
+      .cm-edge.gameover { stroke: var(--danger); }
+      .cm-edge.victory { stroke: var(--warn); }
+      .cm-edge.alt { stroke: var(--alt); }
+
+      .cm-nodes {
+        position: absolute;
+        padding: 24px 16px;
+        display: flex; flex-direction: row; gap: 48px; align-items: center;
+        min-height: 100%; min-width: max-content;
+        z-index: 2;
+        transform-origin: top left;
+        transition: transform 0.15s ease-out;
+      }
+      .cm-nodes.is-lanes { display: grid; gap: 20px 48px; align-items: center; }
+      .cm-column { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+      .cm-lane-cell { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+
+      /* ── Card do nó ────────────────────────────────────────────── */
+      .cm-node {
+        position: relative;
+        width: var(--cm-node-w);
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--border-strong);
+        border-radius: 6px;
+        padding: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        transition: opacity 0.2s, border-color 0.2s, box-shadow 0.2s;
+      }
+      .cm-node.selected { border-color: var(--accent); border-left-color: var(--accent); box-shadow: 0 0 12px rgba(232, 216, 176, 0.25); }
+      .cm-node.dimmed { opacity: 0.45; filter: grayscale(40%); }
+      .cm-node.has-lane { border-left-color: var(--lane); }
+      .cm-node.has-lane.selected { border-color: var(--lane); }
+      .cm-node.t-gameover { border-left-color: var(--danger); }
+      .cm-node.t-gameover.selected { border-color: var(--danger); }
+      .cm-node.t-victory { border-left-color: var(--warn); }
+      .cm-node.t-victory.selected { border-color: var(--warn); }
+      .cm-node.t-alt { border-left-color: var(--alt); }
+      .cm-node.t-alt.selected { border-color: var(--alt); box-shadow: 0 0 12px rgba(155, 114, 207, 0.3); }
+
+      .cm-node-head { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 4px; }
+      .cm-node-id { font-family: var(--mono); font-size: 0.55rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .cm-node-head-right { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+      .cm-delta { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; padding: 1px 4px; border-radius: 3px; }
+      .cm-delta.pos { background: rgba(40, 168, 88, 0.14); color: var(--ok); }
+      .cm-delta.neg { background: rgba(216, 64, 64, 0.14); color: var(--danger); }
+      .cm-delta.neutral { background: rgba(168, 152, 104, 0.12); color: var(--dim); }
+
+      .cm-conv-badge {
+        width: 18px; height: 18px; padding: 0;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%; font-size: 0.6rem; line-height: 1; cursor: pointer;
+        background: rgba(232, 216, 176, 0.14); border: 1px solid var(--accent); color: var(--accent);
+      }
+
+      .cm-lane-badge {
+        display: inline-block; margin-bottom: 5px;
+        font-size: 0.55rem; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap;
+        padding: 1px 6px; border-radius: 3px;
+        color: var(--lane); border: 1px solid var(--lane);
+      }
+
+      .cm-node-title { font-size: 0.82rem; font-weight: 700; line-height: 1.15; margin-bottom: 4px; }
+      .cm-node-text { font-size: 0.72rem; color: var(--dim); line-height: 1.3; margin-bottom: 8px; }
+
+      /* ── Opções ────────────────────────────────────────────────── */
+      .cm-options { display: flex; flex-direction: column; gap: 5px; }
+      .cm-option {
+        display: flex; justify-content: space-between; align-items: center; gap: 6px;
+        background: var(--panel-2); border: 1px solid var(--border); color: var(--text);
+        padding: 6px 8px; border-radius: 4px;
+        font-size: 0.7rem; font-weight: 600; text-align: left; line-height: 1.2; cursor: pointer;
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+      }
+      .cm-option:hover:not(:disabled) { border-color: var(--accent); }
+      .cm-option.chosen { background: rgba(232, 216, 176, 0.14); border-color: var(--accent); color: var(--accent); }
+      .cm-option.chosen:hover { background: rgba(216, 64, 64, 0.16); border-color: var(--danger); color: var(--danger); }
+      .cm-option.locked { background: transparent; color: var(--muted); cursor: not-allowed; opacity: 0.65; }
+
+      .cm-status { font-size: 0.65rem; font-weight: 700; padding: 4px; border-radius: 3px; text-align: center; letter-spacing: 0.04em; }
+      .cm-status.gameover { background: rgba(216, 64, 64, 0.16); color: var(--danger); border: 1px solid var(--danger); }
+      .cm-status.victory { background: rgba(232, 200, 72, 0.16); color: var(--warn); border: 1px solid var(--warn); }
+      .cm-status.alt { background: rgba(155, 114, 207, 0.16); color: var(--alt); border: 1px solid var(--alt); }
+
+      /* ═══════════════════════════════════════════════════════════════
+         3. CARD DE TROFÉU (formato do Amnesia Rebirth)
+            ícone · pílula de tier · pílula "Perdível" · nome · descrição
+         ═══════════════════════════════════════════════════════════════ */
+      .cm-node-trophy { margin-bottom: 8px; }
+      .cm-node-trophy-label {
+        font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em;
+        color: var(--trophy-light); margin-bottom: 4px;
+      }
+      .cm-node-trophy .cm-trophy + .cm-trophy { margin-top: 5px; }
+
+      .cm-trophy {
+        display: flex; align-items: center; gap: 8px;
+        padding: 7px 8px;
+        background: rgba(var(--trophy-rgb), 0.06);
+        border: 1px solid rgba(var(--trophy-rgb), 0.35);
+        border-radius: 8px;
+      }
+      .cm-t-face-wrap { display: inline-flex; flex-shrink: 0; }
+      .cm-t-face {
+        width: 32px; height: 32px; object-fit: cover;
+        border-radius: 6px; border: 1px solid var(--border); background: var(--panel);
+      }
+      .cm-t-face-fallback { font-size: 22px; line-height: 1; align-items: center; justify-content: center; width: 32px; height: 32px; }
+      .cm-t-info { flex: 1; min-width: 0; }
+      .cm-t-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 2px; }
+      .cm-t-badge {
+        font-family: var(--mono); font-size: 9px; letter-spacing: 1px;
+        padding: 1px 7px; border-radius: 20px; border: 1px solid; flex-shrink: 0;
+      }
+      .cm-t-perd {
+        font-family: var(--mono); font-size: 9px; letter-spacing: 0.5px;
+        padding: 1px 6px; border-radius: 20px; flex-shrink: 0;
+        background: rgba(216, 64, 64, 0.14); border: 1px solid rgba(216, 64, 64, 0.45); color: var(--danger);
+      }
+      .cm-t-name { font-size: 0.76rem; font-weight: 700; line-height: 1.2; }
+      .cm-t-sub { font-family: var(--mono); font-size: 0.6rem; color: var(--dim); margin-top: 1px; line-height: 1.3; }
+
+      .cm-trophy.is-compact { padding: 5px 7px; gap: 6px; }
+      .cm-trophy.is-compact .cm-t-face,
+      .cm-trophy.is-compact .cm-t-face-fallback { width: 24px; height: 24px; }
+      .cm-trophy.is-compact .cm-t-face-fallback { font-size: 16px; }
+      .cm-trophy.is-compact .cm-t-name { font-size: 0.7rem; }
+
+      .cm-trophy-legacy {
+        display: flex; align-items: center; gap: 4px; margin-bottom: 6px;
+        background: rgba(var(--trophy-rgb), 0.1); border: 1px solid rgba(var(--trophy-rgb), 0.4);
+        color: var(--trophy-light); padding: 3px 6px; border-radius: 4px;
+        font-size: 0.62rem; font-weight: 700; line-height: 1.1;
+      }
+
+      /* ── Controles de zoom ─────────────────────────────────────── */
+      .cm-zoom {
+        position: absolute; bottom: 14px; right: 14px; z-index: 6;
+        display: flex; align-items: center; gap: 4px;
+        background: rgba(20, 24, 33, 0.95); backdrop-filter: blur(6px);
+        border: 1px solid var(--border); border-radius: 8px; padding: 4px 6px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+      }
+      .cm-zoom-btn {
+        width: 24px; height: 24px; padding: 0;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--panel-2); border: 1px solid var(--border-strong); color: var(--accent);
+        border-radius: 5px; font-size: 0.85rem; font-weight: 700; line-height: 1; cursor: pointer;
+      }
+      .cm-zoom-val { font-family: var(--mono); font-size: 0.62rem; min-width: 34px; text-align: center; }
+
+      /* ── Pop-up de convergência ────────────────────────────────── */
+      .cm-popup { position: absolute; inset: 0; z-index: 20; background: rgba(4, 5, 8, 0.6); }
+      .cm-popup-card {
+        position: absolute; width: min(300px, calc(100% - 20px)); max-height: calc(100% - 20px); overflow: auto;
+        background: var(--panel); border: 1px solid var(--accent); border-radius: 10px;
+        padding: 14px; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.8);
+        font-size: 0.72rem; line-height: 1.5;
+      }
+      .cm-popup-close {
+        position: absolute; top: 6px; right: 6px; padding: 4px;
+        background: none; border: none; color: var(--dim); font-size: 0.8rem; cursor: pointer;
+      }
+      .cm-conv-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 6px; }
+      .cm-conv-group-title { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin: 10px 0 4px; }
+      .cm-conv-group-title.follow { color: var(--ok); }
+      .cm-conv-group-title.locked { color: var(--danger); }
+      .cm-conv-item { margin-top: 5px; }
+      .cm-conv-item .cm-trophy { margin-bottom: 3px; }
+      .cm-conv-text { color: var(--dim); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cm-nodes, .cm-meter-fill, .cm-edge { transition: none; }
+      }
     </style>
   </head>
   <body>
@@ -855,7 +1391,7 @@
       <!-- ── TABS ── -->
       <nav class="tabs-wrap">
         <button class="tab-btn active" onclick="showTab('overview', this)">🎬 Visão Geral</button>
-        <button class="tab-btn" onclick="showTab('route', this)">🗺️ Roteiro por Sessão</button>
+        <button class="tab-btn" onclick="showTab('route', this)">🗺️ Caminhos</button>
         <button class="tab-btn" onclick="showTab('romance', this)">💕 Romance (4 Etapas)</button>
         <button class="tab-btn" onclick="showTab('trophies', this)">🏅 Troféus</button>
         <button class="tab-btn" onclick="showTab('tips', this)">💡 Dicas</button>
@@ -985,17 +1521,55 @@
 
       <!-- ══ ROUTE ══ -->
       <div id="panel-route" class="panel">
-        <div class="progress-card">
-          <div class="progress-top">
-            <span class="progress-lbl">PROGRESSO DO CHECKLIST</span>
-            <span class="progress-count" id="prog-count">0/0</span>
+      <!-- ═════════════ INÍCIO DO SISTEMA CAMINHOS ═════════════ -->
+      <section class="cm-app" id="cm-app" aria-label="Caminhos">
+        <header class="cm-header">
+          <div class="cm-header-top">
+            <div class="cm-title">
+              <h2 id="cm-title"></h2>
+              <span id="cm-subtitle"></span>
+            </div>
+            <button class="cm-btn cm-btn-reset" id="cm-reset" type="button">RESETAR</button>
           </div>
-          <div class="progress-bar-bg">
-            <div class="progress-bar" id="prog-bar" style="width: 0%"></div>
+          <div class="cm-presets" id="cm-presets"></div>
+          <div class="cm-legend" id="cm-legend" hidden></div>
+          <div class="cm-chapter-row">
+            <label for="cm-chapter">CAPÍTULO</label>
+            <select id="cm-chapter"></select>
           </div>
-          <div class="progress-hint">Clique nos itens para marcar como concluído</div>
+          <div class="cm-hud" id="cm-hud">
+            <div class="cm-meter" id="cm-meter">
+              <span class="cm-meter-label" id="cm-meter-label"></span>
+              <div class="cm-meter-bg"><div class="cm-meter-fill" id="cm-meter-fill"></div></div>
+            </div>
+            <span class="cm-meter-val" id="cm-meter-val"></span>
+            <span class="cm-critical" id="cm-critical" hidden></span>
+            <span class="cm-route-trophies" id="cm-route-trophies" hidden></span>
+          </div>
+        </header>
+
+        <div class="cm-stage" id="cm-stage">
+          <div class="cm-workspace" id="cm-workspace">
+            <svg class="cm-svg" id="cm-svg" aria-hidden="true"></svg>
+            <div class="cm-nodes" id="cm-nodes"></div>
+          </div>
+
+          <div class="cm-zoom">
+            <button class="cm-zoom-btn" type="button" data-zoom="out" aria-label="Diminuir zoom">−</button>
+            <span class="cm-zoom-val" id="cm-zoom-val">100%</span>
+            <button class="cm-zoom-btn" type="button" data-zoom="in" aria-label="Aumentar zoom">+</button>
+            <button class="cm-zoom-btn" type="button" data-zoom="reset" aria-label="Resetar zoom">⟲</button>
+          </div>
+
+          <div class="cm-popup" id="cm-popup" hidden>
+            <div class="cm-popup-card" id="cm-popup-card" role="dialog" aria-label="Ponto de convergência">
+              <button class="cm-popup-close" id="cm-popup-close" type="button" aria-label="Fechar">✕</button>
+              <div id="cm-popup-body"></div>
+            </div>
+          </div>
         </div>
-        <div id="sessions-list"></div>
+      </section>
+      <!-- ═════════════ FIM DO SISTEMA CAMINHOS ═════════════ -->
       </div>
 
       <!-- ══ ROMANCE ══ -->
@@ -1669,6 +2243,62 @@
         { l: 'Perdíveis', v: '10', icon: '⚠️', c: '#a82028' },
       ];
 
+      // ── EXOPHASE (nome oficial, descrição oficial EN + tradução PT-BR, ícone, raridade, pontos) ──
+      const EXO_IMG = 'https://m.exophase.com/psn/awards/s/';
+      const EXO_Q = '?b1a324e69dc8569c73b4b5e3091437f1';
+      // [id do site, nome oficial, arquivo do ícone, descrição oficial (EN), descrição (PT-BR), raridade %, pontos]
+      const EXO_LIST = [
+        ['plat', 'Thief', 'e031061', 'Get all trophies in the game.', 'Obtenha todos os troféus do jogo.', '74.16', 19],
+        ['hand', 'Hand', '47e174b', "Get Ed to shake Julia's hand.", 'Faça Ed apertar a mão de Julia.', '96.63', 14],
+        ['feed', 'Feed', '64754bg', "Fill Petronius' bowl.", 'Encha a tigela de Petronius.', '94.01', 15],
+        ['blanket', 'Blanket', 'bdg6dee', 'Do not let Faye get cold.', 'Não deixe Faye passar frio.', '90.26', 15],
+        ['melody', 'Melody', 'gb13bg8', "Listen to Faye's song all the way through.", 'Ouça a canção de Faye até o fim.', '91.39', 15],
+        ['one', 'One', 'd701745', "Complete Ed's first therapy session.", 'Conclua a primeira sessão de terapia de Ed.', '89.51', 15],
+        ['stone', 'Stone', 'j76574d', "Access one of Julia's childhood memories.", 'Acesse uma das memórias de infância de Julia.', '79.78', 17],
+        ['feast', 'Feast', '1b70bg4', 'Feed Frankie Laine just like he deserves.', 'Alimente Frankie Laine como ele merece.', '80.52', 17],
+        ['samuel', 'Sam', '31701jg', 'Find Samuel Franklin.', 'Encontre Samuel Franklin.', '83.90', 16],
+        ['mvp', 'MVP', '7b04bgb', "Help Eddie Miller become the season's hero.", 'Ajude Eddie Miller a se tornar o herói da temporada.', '79.03', 17],
+        ['figurines', 'Figurines', '507301e', "Find all of Captain Roberts' spies.", 'Encontre todos os espiões do Capitão Roberts.', '77.90', 18],
+        ['brotherhood', 'Brotherhood', '043d460', "Complete the Pirate Brotherhood's secret handshake.", 'Complete o aperto de mão secreto da Irmandade dos Piratas.', '78.28', 18],
+        ['groceries', 'Groceries', '8d56db5', "Get mom's congratulations for storing the groceries quickly.", 'Receba os parabéns da mamãe por guardar as compras rapidamente.', '82.77', 17],
+        ['two', 'Two', 'e0310j1', "Complete Ed's second therapy session.", 'Conclua a segunda sessão de terapia de Ed.', '82.77', 17],
+        ['support', 'Support', '47e17jb', 'Comfort Robert.', 'Console Robert.', '82.77', 17],
+        ['gun', 'Gun', '64754eg', 'Find evidence against Ed Miller.', 'Encontre provas contra Ed Miller.', '82.77', 17],
+        ['three', 'Three', 'bdg6dbe', "Complete Ed's third therapy session.", 'Conclua a terceira sessão de terapia de Ed.', '82.02', 17],
+        ['four', 'Four', 'gb13b88', "Complete Ed's fourth therapy session.", 'Conclua a quarta sessão de terapia de Ed.', '82.02', 17],
+        ['tree', 'Tree', 'd7017d5', "Dive into Julia and Nick's past.", 'Mergulhe no passado de Julia e Nick.', '82.02', 17],
+        ['five', 'Five', 'j76578d', "Complete Ed's fifth therapy session.", 'Conclua a quinta sessão de terapia de Ed.', '82.02', 17],
+        ['engine', 'Engine', '1b70be4', 'Fix a car.', 'Conserte um carro.', '81.65', 17],
+        ['jenny', 'Jenny', '31701dg', "Confirm the existence of Ed's daughter.", 'Confirme a existência da filha de Ed.', '81.65', 17],
+        ['restaurant', 'Restaurant', '7b04b6b', 'Dine at Mamma Louise.', 'Jante no Mamma Louise.', '81.65', 17],
+        ['canyon', 'Canyon', '507304e', "Throw Ed's car down the cliff.", 'Jogue o carro de Ed do penhasco.', '81.27', 17],
+        ['bff', 'BFF', '043d4g0', 'Kill Lisa Horowitz.', 'Mate Lisa Horowitz.', '81.27', 17],
+        ['flamingo', 'Flamingo', '8d56dg5', 'Say goodbye to a childhood friend.', 'Despeça-se de um amigo de infância.', '81.27', 17],
+        ['host', 'Host', 'e031041', "Make sure Ed doesn't get thirsty.", 'Garanta que Ed não fique com sede.', '81.27', 17],
+        ['orphan', 'Orphan', '47e173b', "Get rid of your father's influence.", 'Livre-se da influência do seu pai.', '81.27', 17],
+        ['scar', 'Scar', '647546g', 'Take a seat.', 'Sente-se.', '81.27', 17],
+        ['pliers', 'Pliers', 'bdg6d0e', 'Convince Adam to release you.', 'Convença Adam a libertar você.', '80.90', 17],
+        ['vertigo', 'Vertigo', 'gb13be8', 'Overcome Vertigo by saving Esther Franklin and Jenny.', 'Supere a vertigem salvando Esther Franklin e Jenny.', '81.27', 17],
+        ['romance', 'Romance', 'd701755', 'Get Julia and Nick together.', 'Una Julia e Nick.', '80.15', 17],
+      ];
+      const EXO = {};
+      EXO_LIST.forEach((r, i) => {
+        EXO[r[0]] = {
+          name: r[1],
+          img: EXO_IMG + r[2] + '.png' + EXO_Q,
+          en: r[3],
+          pt: r[4],
+          rar: r[5],
+          pts: r[6],
+          url: 'https://www.exophase.com/trophy/alfred-hitchcock-vertigo-psn/' + (479598 + i) + '-' + r[1].toLowerCase(),
+        };
+      });
+      function trophyImg(t) {
+        const x = EXO[t.id];
+        if (!x) return t.icon;
+        return `<img src="${x.img}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('${t.icon}'))" />`;
+      }
+
       const TYPE_STYLE = {
         platinum: { bg: '#9b72cf33', border: '#9b72cf', label: 'PLATINA', text: '#c4a0f0' },
         gold: { bg: '#c8a02833', border: '#c8a028', label: 'OURO', text: '#e8c848' },
@@ -1695,6 +2325,7 @@
         document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
         document.getElementById('panel-' + id).classList.add('active');
         btn.classList.add('active');
+        if (id === 'route') window.dispatchEvent(new Event('resize')); // Caminhos redesenha as conexões
       }
 
       // ── RENDER STATS ──────────────────────────────────────────
@@ -1842,6 +2473,7 @@
         el.innerHTML = list
           .map((t) => {
             const ts = TYPE_STYLE[t.type];
+            const x = EXO[t.id];
             const isOpen = openTrophy === t.id;
             const borderColor = isOpen ? ts.border : '#141428';
             const bgColor = isOpen ? ts.bg : '#07070f';
@@ -1853,21 +2485,23 @@
     <div class="trophy-item">
       <button class="trophy-btn${isOpen ? ' open' : ''}" onclick="toggleTrophy('${t.id}')"
         style="background:${bgColor};border-color:${borderColor};${isOpen ? `box-shadow:0 0 8px ${ts.border}33` : ''}">
-        <span class="trophy-icon">${t.icon}</span>
+        <span class="trophy-icon">${trophyImg(t)}</span>
         <div class="trophy-meta">
           <div class="trophy-badges">
             <span class="trophy-badge" style="background:${ts.bg};border:1px solid ${ts.border};color:${ts.text}">${ts.label}</span>
             ${missBadge}
             ${sessBadge}
-            <span class="trophy-name" style="color:${ts.text}">${t.ptbr}</span>
+            <span class="trophy-name" style="color:${ts.text}">${x.name}</span>
           </div>
-          <div class="trophy-engname">${t.eng} · ${t.chapter}</div>
+          <div class="trophy-engname">${t.ptbr} · ${t.chapter}</div>
+          <div class="trophy-desc">${x.en}<em>${x.pt}</em></div>
         </div>
+        <div class="trophy-stats"><b>${x.rar}%</b><span>${x.pts} pts</span></div>
         <span class="trophy-arrow">${isOpen ? '▲' : '▼'}</span>
       </button>
       <div class="trophy-body${isOpen ? ' open' : ''}"
         style="background:${ts.border}08;border:1px solid ${ts.border}22;border-top:none">
-        ${t.how}
+        ${t.how}<br /><a class="trophy-link" href="${x.url}" target="_blank" rel="noopener">VER NO EXOPHASE ↗</a>
       </div>
     </div>`;
           })
@@ -1905,10 +2539,1433 @@
       // ── INIT ──────────────────────────────────────────────────
 
       renderStats();
-      renderSessions();
       renderRomance();
       renderTrophies();
       renderTips();
+    </script>
+
+    <!-- ═══ CAMINHOS · DADOS (troca por jogo/capítulo) ═══ -->
+    <script id="cm-data">
+      const CM_CONFIG = {
+        titulo: 'ALFRED HITCHCOCK: VERTIGO — CAMINHOS',
+        subtitulo: '🏆 ROTEIRO DA PLATINA INTEGRADO',
+        storagePrefix: 'guia-vertigo-caminhos-',
+        nodeWidth: 210,
+        zoom: { min: 0.5, max: 1.3, wheelStep: 0.08, buttonStep: 0.1 },
+        dragSpeed: 1.5,
+        // Vertigo não tem medidor de estado
+        meter: {
+          enabled: false,
+          label: '',
+          start: 50,
+          min: 0,
+          max: 100,
+          tiers: { high: 70, mid: 40 },
+          criticalAt: 0,
+          criticalLabel: ''
+        }
+      };
+
+      const CM_TIPO_STYLE = {
+        platina: { bg: '#9b72cf33', border: '#9b72cf', label: 'PLATINA', text: '#c4a0f0' },
+        ouro: { bg: '#c8a02833', border: '#c8a028', label: 'OURO', text: '#e8c848' },
+        prata: { bg: '#9090b033', border: '#9090b0', label: 'PRATA', text: '#b8b8d8' },
+        bronze: { bg: '#7a601833', border: '#7a6018', label: 'BRONZE', text: '#c0a050' }
+      };
+
+      // Nome oficial + ícone (hotlink Exophase) + descrição em PT-BR. Tiers conforme o .txt da sessão.
+      const CM_TROFEUS = [
+        { id: 'hand', nome: 'Hand', desc: 'Faça Ed apertar a mão de Julia.', tipo: 'bronze', icon: '🤝', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/47e174b.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'feed', nome: 'Feed', desc: 'Encha a tigela de Petronius.', tipo: 'bronze', icon: '🐱', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/64754bg.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'blanket', nome: 'Blanket', desc: 'Não deixe Faye passar frio.', tipo: 'bronze', icon: '🛋️', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/bdg6dee.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'melody', nome: 'Melody', desc: 'Ouça a canção de Faye até o fim.', tipo: 'bronze', icon: '🎵',
+          img: 'https://m.exophase.com/psn/awards/s/gb13bg8.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'one', nome: 'One', desc: 'Conclua a primeira sessão de terapia de Ed.', tipo: 'ouro', icon: '1️⃣',
+          img: 'https://m.exophase.com/psn/awards/s/d701745.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'stone', nome: 'Stone', desc: 'Acesse uma das memórias de infância de Julia.', tipo: 'bronze', icon: '🪨', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/j76574d.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'feast', nome: 'Feast', desc: 'Alimente Frankie Laine como ele merece.', tipo: 'prata', icon: '🥕', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/1b70bg4.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'samuel', nome: 'Sam', desc: 'Encontre Samuel Franklin.', tipo: 'bronze', icon: '🔍',
+          img: 'https://m.exophase.com/psn/awards/s/31701jg.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'mvp', nome: 'MVP', desc: 'Ajude Eddie Miller a se tornar o herói da temporada.', tipo: 'bronze', icon: '🏀', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/7b04bgb.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'figurines', nome: 'Figurines', desc: 'Encontre todos os espiões do Capitão Roberts.', tipo: 'prata', icon: '🏴‍☠️', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/507301e.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'brotherhood', nome: 'Brotherhood', desc: 'Complete o aperto de mão secreto da Irmandade dos Piratas.', tipo: 'prata', icon: '🤜', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/043d460.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'groceries', nome: 'Groceries', desc: 'Receba os parabéns da mamãe por guardar as compras rapidamente.', tipo: 'prata', icon: '🛒', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/8d56db5.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'two', nome: 'Two', desc: 'Conclua a segunda sessão de terapia de Ed.', tipo: 'ouro', icon: '2️⃣',
+          img: 'https://m.exophase.com/psn/awards/s/e0310j1.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'support', nome: 'Support', desc: 'Console Robert.', tipo: 'bronze', icon: '📞',
+          img: 'https://m.exophase.com/psn/awards/s/47e17jb.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'gun', nome: 'Gun', desc: 'Encontre provas contra Ed Miller.', tipo: 'bronze', icon: '🔫',
+          img: 'https://m.exophase.com/psn/awards/s/64754eg.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'three', nome: 'Three', desc: 'Conclua a terceira sessão de terapia de Ed.', tipo: 'ouro', icon: '3️⃣',
+          img: 'https://m.exophase.com/psn/awards/s/bdg6dbe.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'four', nome: 'Four', desc: 'Conclua a quarta sessão de terapia de Ed.', tipo: 'ouro', icon: '4️⃣',
+          img: 'https://m.exophase.com/psn/awards/s/gb13b88.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'romance', nome: 'Romance', desc: 'Una Julia e Nick.', tipo: 'prata', icon: '💕', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/d701755.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'tree', nome: 'Tree', desc: 'Mergulhe no passado de Julia e Nick.', tipo: 'bronze', icon: '🌳',
+          img: 'https://m.exophase.com/psn/awards/s/d7017d5.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'five', nome: 'Five', desc: 'Conclua a quinta sessão de terapia de Ed.', tipo: 'ouro', icon: '5️⃣',
+          img: 'https://m.exophase.com/psn/awards/s/j76578d.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'engine', nome: 'Engine', desc: 'Conserte um carro.', tipo: 'bronze', icon: '🔩',
+          img: 'https://m.exophase.com/psn/awards/s/1b70be4.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'jenny', nome: 'Jenny', desc: 'Confirme a existência da filha de Ed.', tipo: 'bronze', icon: '👧',
+          img: 'https://m.exophase.com/psn/awards/s/31701dg.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'restaurant', nome: 'Restaurant', desc: 'Jante no Mamma Louise.', tipo: 'prata', icon: '🍽️', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/7b04b6b.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'canyon', nome: 'Canyon', desc: 'Jogue o carro de Ed do penhasco.', tipo: 'bronze', icon: '🚗',
+          img: 'https://m.exophase.com/psn/awards/s/507304e.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'bff', nome: 'BFF', desc: 'Mate Lisa Horowitz.', tipo: 'prata', icon: '💀',
+          img: 'https://m.exophase.com/psn/awards/s/043d4g0.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'flamingo', nome: 'Flamingo', desc: 'Despeça-se de um amigo de infância.', tipo: 'bronze', icon: '🦩', perdivel: true,
+          img: 'https://m.exophase.com/psn/awards/s/8d56dg5.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'host', nome: 'Host', desc: 'Garanta que Ed não fique com sede.', tipo: 'bronze', icon: '🥤',
+          img: 'https://m.exophase.com/psn/awards/s/e031041.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'orphan', nome: 'Orphan', desc: 'Livre-se da influência do seu pai.', tipo: 'prata', icon: '🚪',
+          img: 'https://m.exophase.com/psn/awards/s/47e173b.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'scar', nome: 'Scar', desc: 'Sente-se.', tipo: 'bronze', icon: '🪑',
+          img: 'https://m.exophase.com/psn/awards/s/647546g.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'pliers', nome: 'Pliers', desc: 'Convença Adam a libertar você.', tipo: 'prata', icon: '🔧',
+          img: 'https://m.exophase.com/psn/awards/s/bdg6d0e.png?b1a324e69dc8569c73b4b5e3091437f1' },
+        { id: 'vertigo', nome: 'Vertigo', desc: 'Supere a vertigem salvando Esther Franklin e Jenny.', tipo: 'ouro', icon: '🌀',
+          img: 'https://m.exophase.com/psn/awards/s/gb13be8.png?b1a324e69dc8569c73b4b5e3091437f1' }
+      ];
+
+      const CM_CAPITULOS = [
+        {
+          id: 'sessao1',
+          name: '1. Primeira sessão de terapia',
+          presets: [
+            { id: 'todos', label: '🏆 Os 5 troféus da sessão',
+              path: ['start', 'hand_ok', 'flash_gato', 'feed_ok', 'faye_sofa', 'blanket_ok', 'melody', 'fim'] },
+            { id: 'perder', label: '⚠ Perder Hand e Feed',
+              path: ['start', 'hand_no', 'flash_gato', 'feed_no', 'faye_sofa', 'blanket_ok', 'melody', 'fim'] }
+          ],
+          levels: [
+            [
+              { id: 'start', title: '1. Julia conhece Ed', delta: 0,
+                text: 'Dia 1, início do jogo. Ed está sentado na cama e Julia estende a mão para cumprimentá-lo.',
+                options: [
+                  { label: 'Manter a mão estendida (Keep offering hand)', target: 'hand_ok' },
+                  { label: 'Retirar a mão (Withdraw hand)', target: 'hand_no' }
+                ] }
+            ],
+            [
+              { id: 'hand_ok', title: '2. Mão Estendida', delta: 0, trophy: 'hand',
+                text: 'Ed aperta a mão de Julia. É o primeiro troféu do jogo.',
+                options: [{ label: 'Seguir para o flashback de Ed', target: 'flash_gato' }] },
+              { id: 'hand_no', title: '2. Mão Retirada', delta: 0,
+                text: 'Ed não chega a apertar a mão de Julia — o troféu Hand não libera nesta run.',
+                options: [{ label: 'Seguir para o flashback de Ed', target: 'flash_gato' }] }
+            ],
+            [
+              { id: 'flash_gato', title: '3. Flashback: o gato de Ed', delta: 0,
+                text: 'Por volta dos 15 minutos de jogo você controla Ed, desce as escadas e o jogo manda alimentar Petronius. A campainha toca algumas vezes.',
+                converge: [
+                  { trophy: 'hand', needs: ['hand_ok'],
+                    ok: 'Hand já garantido nesta run.',
+                    lost: 'Perdido nesta run: a mão foi retirada.' },
+                  { trophy: 'feed',
+                    ok: "Escolha “Fill bowl” e continue enchendo a tigela antes de abrir a porta." }
+                ],
+                options: [
+                  { label: 'Encher a tigela (Fill bowl)', target: 'feed_ok' },
+                  { label: 'Ir abrir a porta', target: 'feed_no' }
+                ] }
+            ],
+            [
+              { id: 'feed_ok', title: '4. Tigela Cheia', delta: 0, trophy: 'feed',
+                text: 'Você continua enchendo a tigela de Petronius antes de atender a porta.',
+                options: [{ label: 'Seguir a memória', target: 'faye_sofa' }] },
+              { id: 'feed_no', title: '4. Porta Aberta', delta: 0,
+                text: 'Você deixa a tigela e vai atender a campainha — o troféu Feed não libera nesta run.',
+                options: [{ label: 'Seguir a memória', target: 'faye_sofa' }] }
+            ],
+            [
+              { id: 'faye_sofa', title: '5. Faye no Sofá', delta: 0,
+                text: 'Faye entra na casa de Ed, recebe gelo e adormece no sofá, tremendo de frio.',
+                converge: [
+                  { trophy: 'hand', needs: ['hand_ok'],
+                    ok: 'Hand já garantido nesta run.',
+                    lost: 'Perdido nesta run: a mão foi retirada.' },
+                  { trophy: 'feed', needs: ['feed_ok'],
+                    ok: 'Feed já garantido nesta run.',
+                    lost: 'Perdido nesta run: a tigela não foi enchida antes de abrir a porta.' },
+                  { trophy: 'blanket',
+                    ok: 'Quando Faye disser que está com frio, vá ao outro sofá (à sua esquerda), pegue o cobertor e escolha “Make Petronius move” para cobri-la.' }
+                ],
+                options: [{ label: 'Pegar o cobertor no outro sofá (Make Petronius move)', target: 'blanket_ok' }] }
+            ],
+            [
+              { id: 'blanket_ok', title: '6. Cobertor', delta: 0, trophy: 'blanket',
+                text: 'Petronius sai de cima do cobertor e Ed cobre Faye. O troféu libera depois que Ed a cobre.',
+                options: [{ label: 'Seguir a memória', target: 'melody' }] }
+            ],
+            [
+              { id: 'melody', title: '7. A Canção de Faye', delta: 0, trophy: 'melody',
+                text: 'Ouça a canção de Faye até o fim. Este troféu não é perdível: libera durante o flashback.',
+                options: [{ label: 'Encerrar a sessão', target: 'fim' }] }
+            ],
+            [
+              { id: 'fim', title: 'Fim da 1ª Sessão', type: 'victory', delta: 0, trophy: 'one',
+                text: 'Ao hipnotizar Ed e concluir a sessão de terapia, o troféu One libera. Não é perdível.' }
+            ]
+          ]
+        },
+        {
+          id: 'almoco',
+          name: '2. Pausa para o almoço · Xerife Reyes',
+          presets: [
+            { id: 'todos', label: '🏆 Os 3 troféus do capítulo',
+              path: ['start', 'stone_ok', 'rancho', 'celeiro', 'feast_ok', 'porao'] },
+            { id: 'perder', label: '⚠ Perder Stone e Feast',
+              path: ['start', 'stone_no', 'rancho', 'casa', 'porao'] }
+          ],
+          levels: [
+            [
+              { id: 'start', title: '1. Almoço: Julia e o Lago', delta: 0,
+                text: 'Dia 1, depois da primeira sessão com Ed. Julia desce até a beira do lago para o intervalo de almoço.',
+                converge: [
+                  { trophy: 'stone',
+                    ok: 'Vá até a beira do cais e use o ponto de interação sobre o lago (✕) para acessar a memória de infância de Julia.' }
+                ],
+                options: [
+                  { label: 'Ir até a beira do cais e olhar o lago (✕)', target: 'stone_ok' },
+                  { label: 'Seguir sem interagir com o lago', target: 'stone_no' }
+                ] }
+            ],
+            [
+              { id: 'stone_ok', title: '2. Memória do Lago', delta: 0, trophy: 'stone',
+                text: 'A memória de infância de Julia é ativada e o troféu libera.',
+                options: [{ label: 'Seguir para o rancho dos Franklin', target: 'rancho' }] },
+              { id: 'stone_no', title: '2. Lago Ignorado', delta: 0,
+                text: 'Julia não acessa a memória — o troféu Stone não libera nesta run.',
+                options: [{ label: 'Seguir para o rancho dos Franklin', target: 'rancho' }] }
+            ],
+            [
+              { id: 'rancho', title: '3. Xerife Reyes no Rancho', delta: 0,
+                text: 'Primeira vez que você controla o xerife Reyes (Nick). Ele chega ao rancho dos Franklin.',
+                converge: [
+                  { trophy: 'stone', needs: ['stone_ok'],
+                    ok: 'Stone já garantido nesta run.',
+                    lost: 'Perdido nesta run: o ponto de interação no lago não foi usado.' },
+                  { trophy: 'feast',
+                    ok: 'Assim que chegar, vire-se e entre no celeiro aberto em vez da casa.' }
+                ],
+                options: [
+                  { label: 'Entrar no celeiro aberto', target: 'celeiro' },
+                  { label: 'Entrar direto na casa', target: 'casa' }
+                ] }
+            ],
+            [
+              { id: 'celeiro', title: '4. Celeiro', delta: 0,
+                text: 'Depois da cena, olhe a baia à esquerda: há um cavalo faminto. Pegue uma cenoura no cesto/balde ali perto e leve até ele, 3 vezes.',
+                options: [{ label: 'Dar a cenoura ao cavalo 3 vezes', target: 'feast_ok' }] },
+              { id: 'casa', title: '4. Direto para a Casa', delta: 0,
+                text: 'Reyes vai para a casa sem passar pelo celeiro — o troféu Feast não libera nesta run.',
+                options: [{ label: 'Descer ao porão', target: 'porao' }] }
+            ],
+            [
+              { id: 'feast_ok', title: '5. Cavalo Alimentado', delta: 0, trophy: 'feast',
+                text: 'Depois da terceira cenoura, o troféu libera.',
+                options: [{ label: 'Descer ao porão', target: 'porao' }] }
+            ],
+            [
+              { id: 'porao', title: 'Fim: Sam no Porão', type: 'victory', delta: 0, trophy: 'samuel',
+                text: 'No porão, Reyes encontra o corpo de Sam. O troféu libera e não é perdível.' }
+            ]
+          ]
+        },
+        {
+          id: 'sessao2',
+          name: '3. Segunda sessão de terapia',
+          presets: [
+            { id: 'todos', label: '🏆 Os 5 troféus da sessão',
+              path: ['start', 'mvp_ok', 'figs', 'figs_ok', 'escritorio', 'bro_ok', 'compras', 'groc_ok', 'fim'] },
+            { id: 'perder', label: '⚠ Perder os 4 perdíveis',
+              path: ['start', 'mvp_no', 'figs', 'figs_no', 'escritorio', 'bro_no', 'compras', 'groc_no', 'fim'] }
+          ],
+          levels: [
+            [
+              { id: 'start', title: '1. Ed criança: fora da casa', delta: 0,
+                text: 'Dia 1, memórias de infância de Ed. Ao descer da casa da árvore, o MVP e as Miniaturas começam do lado de fora.',
+                converge: [
+                  { trophy: 'mvp',
+                    ok: 'Vá aos fundos da garagem: há uma bola e uma cesta. Aperte ✕ na bola e complete o QTE. Se falhar, dá para tentar de novo sem recarregar. Depois foque nas Miniaturas.' }
+                ],
+                options: [
+                  { label: 'Ir aos fundos da garagem e pegar a bola (✕)', target: 'mvp_ok' },
+                  { label: 'Ignorar a bola e seguir', target: 'mvp_no' }
+                ] }
+            ],
+            [
+              { id: 'mvp_ok', title: '2. Cesta Feita', delta: 0, trophy: 'mvp',
+                text: 'Você completa o QTE, a bola entra na cesta e o troféu libera.',
+                options: [{ label: 'Procurar as miniaturas', target: 'figs' }] },
+              { id: 'mvp_no', title: '2. Bola Ignorada', delta: 0,
+                text: 'O troféu MVP não libera nesta run (dá para recuperar pelo Chapter Select).',
+                options: [{ label: 'Procurar as miniaturas', target: 'figs' }] }
+            ],
+            [
+              { id: 'figs', title: '3. Miniaturas dos Espiões', delta: 0,
+                text: 'Há 3 miniaturas (azul, vermelha e verde): duas do lado de fora e a verde dentro da casa. Basta apertar ✕ em cada uma. Todas precisam ser achadas antes de falar com o pai.',
+                converge: [
+                  { trophy: 'mvp', needs: ['mvp_ok'],
+                    ok: 'MVP já garantido nesta run.',
+                    lost: 'Perdido nesta run: a cesta não foi feita.' },
+                  { trophy: 'figurines',
+                    ok: 'Azul: ao descer da casa da árvore, vire à esquerda até a bifurcação e siga pela esquerda (lago) até a ponta do cais. Vermelha: volte à bifurcação, siga pela direita, morro acima, sobre uma pedra à direita. Verde: dentro da casa, suba ao quarto de Ed e olhe a mesinha de cabeceira.' }
+                ],
+                options: [
+                  { label: 'Achar as 3 miniaturas antes de falar com o pai', target: 'figs_ok' },
+                  { label: 'Seguir sem achar todas', target: 'figs_no' }
+                ] }
+            ],
+            [
+              { id: 'figs_ok', title: '4. Espiões Encontrados', delta: 0, trophy: 'figurines',
+                text: 'O troféu libera ao apertar ✕ na terceira miniatura.',
+                options: [{ label: 'Subir ao escritório do pai', target: 'escritorio' }] },
+              { id: 'figs_no', title: '4. Miniaturas Incompletas', delta: 0,
+                text: 'O troféu Figurines não libera nesta run (dá para recuperar pelo Chapter Select).',
+                options: [{ label: 'Subir ao escritório do pai', target: 'escritorio' }] }
+            ],
+            [
+              { id: 'escritorio', title: '5. Escritório do Pai', delta: 0,
+                text: 'O pai recebe o menino com o aperto de mão secreto. Dica: antes de subir, saia e reentre na casa para gerar um checkpoint.',
+                converge: [
+                  { trophy: 'mvp', needs: ['mvp_ok'],
+                    ok: 'MVP já garantido nesta run.',
+                    lost: 'Perdido nesta run: a cesta não foi feita.' },
+                  { trophy: 'figurines', needs: ['figs_ok'],
+                    ok: 'Figurines já garantido nesta run.',
+                    lost: 'Perdido nesta run: as 3 miniaturas não foram todas achadas.' },
+                  { trophy: 'brotherhood',
+                    ok: 'Acerte todos os prompts, sem errar: AE ← · AE → · AE → + AD ← · AE → + AD ← · AE ← + AD → · AE ↑ + AD ↑ (AE = analógico esquerdo, AD = direito). Solte os analógicos assim que cada prompt for cumprido, porque o seguinte pode aparecer logo em seguida.' }
+                ],
+                options: [
+                  { label: 'Acertar todos os prompts do aperto de mão', target: 'bro_ok' },
+                  { label: 'Errar um dos prompts', target: 'bro_no' }
+                ] }
+            ],
+            [
+              { id: 'bro_ok', title: '6. Aperto Perfeito', delta: 0, trophy: 'brotherhood',
+                text: 'O aperto de mão secreto é concluído sem erros e o troféu libera.',
+                options: [{ label: 'Ajudar a mãe com as compras', target: 'compras' }] },
+              { id: 'bro_no', title: '6. Aperto Falhou', delta: 0,
+                text: 'O círculo fica vermelho e o troféu Brotherhood não libera. Para repetir: Pausa → Carregar Jogo → Carregar seu progresso máximo (volta para a entrada da casa).',
+                options: [{ label: 'Ajudar a mãe com as compras', target: 'compras' }] }
+            ],
+            [
+              { id: 'compras', title: '7. Mãe e as Compras', delta: 0,
+                text: 'A mãe de Ed volta e ele vai à cozinha ajudá-la a guardar as compras. Faça rápido e volte à mãe.',
+                converge: [
+                  { trophy: 'brotherhood', needs: ['bro_ok'],
+                    ok: 'Brotherhood já garantido nesta run.',
+                    lost: 'Perdido nesta run: o aperto de mão teve erro.' },
+                  { trophy: 'groceries',
+                    ok: 'Alface: dentro da geladeira. Pão: bancada da janela, atrás da mãe. Papel-toalha: mesa dentro da despensa. Lata de sopa: prateleira ao lado da porta, dentro da despensa. Use ✕ para pegar e ✕ para guardar; depois volte à mãe.' }
+                ],
+                options: [
+                  { label: 'Guardar as 4 compras rápido e voltar à mãe', target: 'groc_ok' },
+                  { label: 'Demorar para guardar', target: 'groc_no' }
+                ] }
+            ],
+            [
+              { id: 'groc_ok', title: '8. Compras Guardadas', delta: 0, trophy: 'groceries',
+                text: 'Ao voltar à mãe, ela reconhece a rapidez e o troféu libera.',
+                options: [{ label: 'Encerrar a sessão', target: 'fim' }] },
+              { id: 'groc_no', title: '8. Compras Lentas', delta: 0,
+                text: 'Sem rapidez o troféu Groceries não libera. Dá para recarregar o checkpoint pelo menu de pausa.',
+                options: [{ label: 'Encerrar a sessão', target: 'fim' }] }
+            ],
+            [
+              { id: 'fim', title: 'Fim da 2ª Sessão', type: 'victory', delta: 0, trophy: 'two',
+                text: 'Ao hipnotizar Ed e concluir a segunda sessão, o troféu Two libera. Não é perdível.' }
+            ]
+          ]
+        },
+        {
+          id: 'sessoes_rapidas',
+          name: '4. Julia · Xerife Reyes · Sessões rápidas',
+          presets: [
+            { id: 'todos', label: '🏆 7 troféus + Romance 1/4',
+              path: ['support', 'gun', 'three', 'four', 'hotel', 'r1_ok', 'tree', 'five', 'engine'] },
+            { id: 'perder', label: '⚠ Perder o Romance 1/4',
+              path: ['support', 'gun', 'three', 'four', 'hotel', 'r1_no', 'tree', 'five', 'engine'] }
+          ],
+          levels: [
+            [
+              { id: 'support', title: '1. Julia e Robert', delta: 0, trophy: 'support',
+                text: 'Julia está no quarto do hotel, ao telefone com Robert. O troféu libera durante a ligação e não é perdível.',
+                options: [{ label: 'Seguir para o carro de Ed', target: 'gun' }] }
+            ],
+            [
+              { id: 'gun', title: '2. O Carro Acidentado', delta: 0, trophy: 'gun',
+                text: 'Controlando o xerife Reyes, investigue o carro acidentado de Ed. O troféu não é perdível.',
+                options: [{ label: 'Seguir para a terceira sessão', target: 'three' }] }
+            ],
+            [
+              { id: 'three', title: '3. Terceira Sessão', delta: 0, trophy: 'three',
+                text: 'O troféu libera depois da terceira hipnose de Ed. Não é perdível.',
+                options: [{ label: 'Seguir para a quarta sessão', target: 'four' }] }
+            ],
+            [
+              { id: 'four', title: '4. Quarta Sessão', delta: 0, trophy: 'four',
+                text: 'O troféu libera ao fim da quarta sessão de terapia de Ed. Não é perdível.',
+                options: [{ label: 'Reyes chega ao hotel', target: 'hotel' }] }
+            ],
+            [
+              { id: 'hotel', title: '5. Reyes no Hotel · Romance 1/4', delta: 0,
+                text: 'Depois da quarta sessão, o xerife Reyes chega ao quarto de Julia e tenta convencê-la a confiar nele.',
+                converge: [
+                  { trophy: 'romance',
+                    ok: 'Etapa 1/4. Escolha todas as opções que deixam os dois simpáticos um com o outro e, no fim da conversa, “Trust me” e “I trust you”.' }
+                ],
+                options: [
+                  { label: 'Ser simpático e fechar com “Trust me” / “I trust you”', target: 'r1_ok' },
+                  { label: 'Escolher outras opções no diálogo', target: 'r1_no' }
+                ] }
+            ],
+            [
+              { id: 'r1_ok', title: '6. Confiança Mútua', delta: 0,
+                text: 'Etapa 1/4 do Romance cumprida. O troféu só libera na etapa 4/4, no fim do jogo.',
+                options: [{ label: 'Seguir para a caminhada', target: 'tree' }] },
+              { id: 'r1_no', title: '6. Sem Confiança', delta: 0,
+                text: 'Etapa 1/4 perdida — o troféu Romance não libera nesta run (dá para refazer pelo Chapter Select).',
+                options: [{ label: 'Seguir para a caminhada', target: 'tree' }] }
+            ],
+            [
+              { id: 'tree', title: '7. A Caminhada', delta: 0, trophy: 'tree',
+                text: 'O troféu libera durante a caminhada de Julia e Reyes. Não é perdível.',
+                converge: [
+                  { trophy: 'romance', needs: ['r1_ok'],
+                    ok: 'Etapa 1/4 do Romance cumprida nesta run.',
+                    lost: 'Perdido nesta run: o diálogo do hotel não foi feito do jeito certo.' }
+                ],
+                options: [{ label: 'Seguir para a quinta sessão', target: 'five' }] }
+            ],
+            [
+              { id: 'five', title: '8. Quinta Sessão', delta: 0, trophy: 'five',
+                text: 'O troféu libera ao fim da quinta sessão de Ed. Não é perdível.',
+                options: [{ label: 'Seguir para a locadora', target: 'engine' }] }
+            ],
+            [
+              { id: 'engine', title: 'Fim: Locadora de Carros', type: 'victory', delta: 0, trophy: 'engine',
+                text: 'O xerife Reyes vasculha um pátio de locadora de carros e o troféu libera. Não é perdível.' }
+            ]
+          ]
+        },
+        {
+          id: 'delegacia',
+          name: '5. Delegacia · Veronica Cartwright',
+          presets: [
+            { id: 'todos', label: '🏆 Os 6 troféus do capítulo',
+              path: ['jenny', 'bag', 'rest_ok', 'canyon', 'bff', 'flam', 'flam_ok', 'host'] },
+            { id: 'perder', label: '⚠ Perder Restaurant e Flamingo',
+              path: ['jenny', 'bag', 'rest_no', 'canyon', 'bff', 'flam', 'flam_no', 'host'] }
+          ],
+          levels: [
+            [
+              { id: 'jenny', title: '1. Celular de Faye', delta: 0, trophy: 'jenny',
+                text: 'Na delegacia, o troféu libera enquanto você rola o celular de Faye. Não é perdível.',
+                options: [{ label: 'Examinar a mochila de Faye', target: 'bag' }] }
+            ],
+            [
+              { id: 'bag', title: '2. Mochila de Faye · Romance 2/4', delta: 0,
+                text: 'Julia e Reyes examinam a mochila e os pertences de Faye. Depois, o xerife deixa no ar que quer comer fora.',
+                converge: [
+                  { trophy: 'restaurant',
+                    ok: 'Escolha “Want to eat out?” e faça o xerife aceitar. Isso vale também como etapa 2/4 do Romance. Para refazer: carregue “Julia Finds Faye’s Corpse with a Drone” em Load Game.' }
+                ],
+                options: [
+                  { label: 'Escolher “Want to eat out?” e Reyes aceita', target: 'rest_ok' },
+                  { label: 'Não convidar para jantar', target: 'rest_no' }
+                ] }
+            ],
+            [
+              { id: 'rest_ok', title: '3. Jantar Combinado', delta: 0, trophy: 'restaurant',
+                text: 'Reyes aceita o convite e o troféu libera. Etapa 2/4 do Romance cumprida.',
+                options: [{ label: 'Seguir para as memórias do caminhoneiro', target: 'canyon' }] },
+              { id: 'rest_no', title: '3. Sem Jantar', delta: 0,
+                text: 'O troféu Restaurant não libera e a etapa 2/4 do Romance é perdida nesta run.',
+                options: [{ label: 'Seguir para as memórias do caminhoneiro', target: 'canyon' }] }
+            ],
+            [
+              { id: 'canyon', title: '4. Memórias do Caminhoneiro', delta: 0, trophy: 'canyon',
+                text: 'Controlando Faye dentro das memórias do caminhoneiro, o troféu libera. Não é perdível.',
+                converge: [
+                  { trophy: 'restaurant', needs: ['rest_ok'],
+                    ok: 'Restaurant já garantido nesta run.',
+                    lost: 'Perdido nesta run: o convite para jantar não foi feito.' }
+                ],
+                options: [{ label: 'Seguir para Veronica', target: 'bff' }] }
+            ],
+            [
+              { id: 'bff', title: '5. Veronica no Telhado', delta: 0, trophy: 'bff',
+                text: 'No flashback de Veronica com a amiga em um telhado, o troféu libera. Não é perdível.',
+                options: [{ label: 'Seguir para o segundo flashback', target: 'flam' }] }
+            ],
+            [
+              { id: 'flam', title: '6. Segundo Flashback', delta: 0,
+                text: 'Depois que o pai sai para trabalhar, Veronica vai ao quarto de infância.',
+                converge: [
+                  { trophy: 'flamingo',
+                    ok: 'Ao entrar no quarto, olhe para a esquerda e interaja com o flamingo de pelúcia (Flannery); um QTE aparece. Para refazer: carregue o checkpoint “Veronica Sets Ed Up for Stealing Her Dad’s Attention”.' }
+                ],
+                options: [
+                  { label: 'Interagir com o flamingo (QTE)', target: 'flam_ok' },
+                  { label: 'Ignorar o flamingo', target: 'flam_no' }
+                ] }
+            ],
+            [
+              { id: 'flam_ok', title: '7. Flamingo', delta: 0, trophy: 'flamingo',
+                text: 'O QTE aparece e o troféu libera.',
+                options: [{ label: 'Seguir o flashback até o fim', target: 'host' }] },
+              { id: 'flam_no', title: '7. Flamingo Ignorado', delta: 0,
+                text: 'O troféu Flamingo não libera nesta run (dá para refazer pelo checkpoint do capítulo).',
+                options: [{ label: 'Seguir o flashback até o fim', target: 'host' }] }
+            ],
+            [
+              { id: 'host', title: 'Fim do Flashback de Veronica', type: 'victory', delta: 0, trophy: 'host',
+                text: 'O troféu libera ao fim do flashback de Veronica. Não é perdível.' }
+            ]
+          ]
+        },
+        {
+          id: 'busca_jenny',
+          name: '6. A busca por Jenny Miller',
+          presets: [
+            { id: 'todos', label: '🏆 Os 5 troféus do capítulo',
+              path: ['orphan', 'scar', 'morgue', 'r3_ok', 'pliers', 'vertigo', 'beijo', 'final_ok'] },
+            { id: 'perder', label: '⚠ Perder o Romance 3/4 e 4/4',
+              path: ['orphan', 'scar', 'morgue', 'r3_no', 'pliers', 'vertigo', 'beijo', 'final_no'] }
+          ],
+          levels: [
+            [
+              { id: 'orphan', title: '1. Ed Sai de Casa', delta: 0, trophy: 'orphan',
+                text: 'O troféu libera quando Ed começa a andar pela casa e sai para o lado de fora. Não é perdível.',
+                options: [{ label: 'Seguir para Veronica', target: 'scar' }] }
+            ],
+            [
+              { id: 'scar', title: '2. Terceiro Flashback', delta: 0, trophy: 'scar',
+                text: 'O troféu libera ao fim do terceiro flashback de Veronica. Não é perdível.',
+                options: [{ label: 'Seguir para o necrotério', target: 'morgue' }] }
+            ],
+            [
+              { id: 'morgue', title: '3. Necrotério · Romance 3/4', delta: 0,
+                text: 'Na sala de autópsia com o pai de Veronica, Nick e Julia respondem às perguntas.',
+                converge: [
+                  { trophy: 'romance',
+                    ok: 'Etapa 3/4. Deixe Nick e Julia se ajudarem: escolha “Let Julia handle it” e “Let Nick handle it”. As etapas 1/4 e 2/4 dependem dos capítulos anteriores.' }
+                ],
+                options: [
+                  { label: 'Escolher “Let Julia handle it” e “Let Nick handle it”', target: 'r3_ok' },
+                  { label: 'Escolher outras opções', target: 'r3_no' }
+                ] }
+            ],
+            [
+              { id: 'r3_ok', title: '4. Ajuda Mútua', delta: 0,
+                text: 'Etapa 3/4 do Romance cumprida. Falta a etapa 4/4, no fim do jogo.',
+                options: [{ label: 'Seguir para o celeiro', target: 'pliers' }] },
+              { id: 'r3_no', title: '4. Sem Ajuda Mútua', delta: 0,
+                text: 'Etapa 3/4 perdida — o troféu Romance não libera nesta run (dá para refazer pelo Chapter Select).',
+                options: [{ label: 'Seguir para o celeiro', target: 'pliers' }] }
+            ],
+            [
+              { id: 'pliers', title: '5. Adam no Celeiro', delta: 0, trophy: 'pliers',
+                text: 'O troféu libera depois que Adam solta Ed dentro do celeiro. Não é perdível.',
+                options: [{ label: 'Seguir para o bunker', target: 'vertigo' }] }
+            ],
+            [
+              { id: 'vertigo', title: '6. Esther e Jenny no Bunker', delta: 0, trophy: 'vertigo',
+                text: 'O troféu libera depois de achar Esther e Jenny no bunker e salvá-las da queda. Não é perdível.',
+                options: [{ label: 'Seguir para o final', target: 'beijo' }] }
+            ],
+            [
+              { id: 'beijo', title: '7. O Beijo · Romance 4/4', delta: 0,
+                text: 'No fim do jogo, Julia e Nick se beijam e a conversa com Nick continua.',
+                converge: [
+                  { trophy: 'romance', needs: ['r3_ok'],
+                    ok: 'Etapa 3/4 cumprida nesta run. Agora, depois do beijo, escolha “I’m leaving Lou”.',
+                    lost: 'Perdido nesta run: a etapa 3/4 (necrotério) não foi feita.' }
+                ],
+                options: [
+                  { label: 'Escolher “I’m leaving Lou”', target: 'final_ok' },
+                  { label: 'Escolher outra resposta', target: 'final_no' }
+                ] }
+            ],
+            [
+              { id: 'final_ok', title: 'Final: Romance', type: 'victory', delta: 0, trophy: 'romance',
+                text: 'Etapa 4/4: o troféu Romance libera aqui, desde que as etapas 1/4 a 3/4 também tenham sido cumpridas.' },
+              { id: 'final_no', title: 'Final sem Romance', type: 'victory', delta: 0,
+                endLabel: '⚠ SEM O TROFÉU ROMANCE',
+                text: 'Sem escolher “I’m leaving Lou”, o troféu Romance não libera (dá para refazer pelo Chapter Select).' }
+            ]
+          ]
+        }
+      ];
+    </script>
+
+    <!-- ═══ CAMINHOS · MOTOR (idêntico ao sistema-base) ═══ -->
+    <script id="cm-engine">
+    (function () {
+      "use strict";
+
+      /* ─── 5.1 Utilidades ─────────────────────────────────────── */
+      const $ = (id) => document.getElementById(id);
+      const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+      function h(tag, cls, html) {
+        const node = document.createElement(tag);
+        if (cls) node.className = cls;
+        if (html != null && html !== "") node.innerHTML = html;
+        return node;
+      }
+
+      function debounce(fn, ms) {
+        let t = null;
+        return function () { clearTimeout(t); t = setTimeout(fn, ms); };
+      }
+
+      /* ─── 5.2 Referências de tela ────────────────────────────── */
+      const dom = {
+        app: $("cm-app"), title: $("cm-title"), subtitle: $("cm-subtitle"),
+        reset: $("cm-reset"), presets: $("cm-presets"), legend: $("cm-legend"),
+        chapter: $("cm-chapter"), hud: $("cm-hud"),
+        meter: $("cm-meter"), meterLabel: $("cm-meter-label"), meterFill: $("cm-meter-fill"),
+        meterVal: $("cm-meter-val"), critical: $("cm-critical"), routeTrophies: $("cm-route-trophies"),
+        stage: $("cm-stage"), workspace: $("cm-workspace"), svg: $("cm-svg"), nodes: $("cm-nodes"),
+        zoomVal: $("cm-zoom-val"),
+        popup: $("cm-popup"), popupCard: $("cm-popup-card"), popupBody: $("cm-popup-body"), popupClose: $("cm-popup-close")
+      };
+
+      /* ─── 5.3 Dados normalizados ─────────────────────────────── */
+      const trophyMap = new Map(CM_TROFEUS.map((t) => [String(t.id), t]));
+
+      function normalizeType(type) {
+        return type === "asylum" ? "alt" : type || "";   // "asylum" = nome antigo de "alt"
+      }
+
+      function trophyRefs(node) {
+        if (node.trophy == null) return [];
+        return Array.isArray(node.trophy) ? node.trophy : [node.trophy];
+      }
+
+      function normalizeChapter(raw) {
+        const levels = raw.levels || Object.values(raw.tree || {});
+        const nodes = new Map();
+        levels.forEach((level) => level.forEach((node) => nodes.set(node.id, node)));
+        return {
+          id: raw.id,
+          name: raw.name,
+          available: raw.available !== false,
+          levels: levels,
+          nodes: nodes,
+          start: raw.start || (levels[0] && levels[0][0] && levels[0][0].id),
+          lanes: raw.lanes || null,
+          presets: raw.presets || []
+        };
+      }
+
+      const chapters = CM_CAPITULOS.map(normalizeChapter);
+      const chapterById = new Map(chapters.map((c) => [c.id, c]));
+
+      /* ─── 5.4 Estado e persistência ──────────────────────────── */
+      const state = { chapterId: null, path: [], zoom: 1 };
+      const nodeEls = new Map();
+
+      const store = {
+        key: (id) => CM_CONFIG.storagePrefix + id,
+        readPath(id) {
+          try {
+            const raw = localStorage.getItem(this.key(id));
+            const parsed = raw ? JSON.parse(raw) : null;
+            return Array.isArray(parsed) ? parsed : null;
+          } catch (e) { return null; }
+        },
+        writePath(id, path) {
+          try { localStorage.setItem(this.key(id), JSON.stringify(path)); } catch (e) { /* sem storage: segue sem salvar */ }
+        },
+        readLast() {
+          try { return localStorage.getItem(this.key("__ultimo")); } catch (e) { return null; }
+        },
+        writeLast(id) {
+          try { localStorage.setItem(this.key("__ultimo"), id); } catch (e) { /* idem */ }
+        }
+      };
+
+      function currentChapter() { return chapterById.get(state.chapterId); }
+
+      // Aceita só caminhos que começam no início e seguem opções que existem de fato.
+      // Protege contra progresso salvo de uma versão antiga do capítulo.
+      function sanitizePath(chapter, path) {
+        const out = [];
+        for (const id of path || []) {
+          if (!chapter.nodes.has(id)) break;
+          if (out.length === 0) {
+            if (id !== chapter.start) break;
+            out.push(id);
+            continue;
+          }
+          const prev = chapter.nodes.get(out[out.length - 1]);
+          if (!(prev.options || []).some((o) => o.target === id)) break;
+          out.push(id);
+        }
+        return out.length ? out : [chapter.start];
+      }
+
+      function savePath() { store.writePath(state.chapterId, state.path); }
+
+      /* ─── 5.5 Medidor ────────────────────────────────────────── */
+      const M = CM_CONFIG.meter;
+
+      function meterAt(uptoIndex) {
+        const ch = currentChapter();
+        let value = M.start;
+        for (let i = 0; i <= uptoIndex && i < state.path.length; i++) {
+          const node = ch.nodes.get(state.path[i]);
+          if (node && node.delta) value += node.delta;
+        }
+        return clamp(value, M.min, M.max);
+      }
+
+      function tierOf(value) {
+        if (value >= M.tiers.high) return "tier-green";
+        if (value >= M.tiers.mid) return "tier-yellow";
+        return "tier-orange";
+      }
+
+      function updateHUD() {
+        dom.meter.hidden = !M.enabled;
+        dom.meterVal.hidden = !M.enabled;
+        if (M.enabled) {
+          const value = meterAt(state.path.length - 1);
+          const critical = value <= M.criticalAt;
+          const tier = tierOf(value);
+          dom.meterFill.style.width = value + "%";
+          dom.meterFill.className = "cm-meter-fill " + (critical ? "is-critical" : tier);
+          dom.meterVal.className = "cm-meter-val " + (critical ? "is-critical" : tier);
+          dom.meterVal.textContent = value + "%";
+          dom.critical.hidden = !critical;
+          dom.critical.textContent = M.criticalLabel;
+        } else {
+          dom.critical.hidden = true;
+        }
+
+        // Troféus que esta rota passa por cima
+        const ch = currentChapter();
+        const found = new Map();
+        state.path.forEach((id) => {
+          trophyRefs(ch.nodes.get(id)).forEach((ref) => {
+            const t = trophyMap.get(String(ref));
+            if (t) found.set(t.id, t);
+          });
+        });
+        if (found.size) {
+          dom.routeTrophies.hidden = false;
+          dom.routeTrophies.textContent = "🏆 " + found.size + (found.size === 1 ? " troféu" : " troféus") + " nesta rota";
+          dom.routeTrophies.title = Array.from(found.values()).map((t) => t.nome).join(" · ");
+        } else {
+          dom.routeTrophies.hidden = true;
+        }
+      }
+
+      /* ─── 5.6 Card de troféu (formato Amnesia Rebirth) ───────── */
+      function tierStyle(tipo) {
+        return CM_TIPO_STYLE[tipo] || { bg: "rgba(110,100,88,0.16)", border: "#6e6458", label: String(tipo || "").toUpperCase(), text: "#b8ae98" };
+      }
+
+      function buildFace(trophy) {
+        const wrap = h("span", "cm-t-face-wrap");
+        const fallback = h("span", "cm-t-face-fallback");
+        fallback.textContent = trophy.icon || "🏆";
+        if (trophy.img) {
+          const img = document.createElement("img");
+          img.className = "cm-t-face";
+          img.alt = "";
+          img.loading = "lazy";
+          img.src = trophy.img;
+          fallback.style.display = "none";
+          img.addEventListener("error", function () {
+            img.style.display = "none";
+            fallback.style.display = "inline-flex";
+          });
+          wrap.appendChild(img);
+        }
+        wrap.appendChild(fallback);
+        return wrap;
+      }
+
+      function buildTrophy(trophy, opts) {
+        const compact = !!(opts && opts.compact);
+        const ts = tierStyle(trophy.tipo);
+        const card = h("div", "cm-trophy" + (compact ? " is-compact" : ""));
+
+        const info = h("div", "cm-t-info");
+        const badges = h("div", "cm-t-badges");
+        const tier = h("span", "cm-t-badge");
+        tier.textContent = ts.label;
+        tier.style.background = ts.bg;
+        tier.style.borderColor = ts.border;
+        tier.style.color = ts.text;
+        badges.appendChild(tier);
+        if (trophy.perdivel) {
+          const perd = h("span", "cm-t-perd");
+          perd.textContent = "⚠ Perdível";
+          badges.appendChild(perd);
+        }
+        info.appendChild(badges);
+
+        const name = h("div", "cm-t-name");
+        name.textContent = trophy.nome;
+        info.appendChild(name);
+        if (!compact && trophy.desc) {
+          const sub = h("div", "cm-t-sub");
+          sub.textContent = trophy.desc;
+          info.appendChild(sub);
+        }
+
+        card.appendChild(buildFace(trophy));
+        card.appendChild(info);
+        return card;
+      }
+
+      function buildNodeTrophies(node) {
+        const refs = trophyRefs(node);
+        if (!refs.length) return null;
+
+        const wrap = h("div", "cm-node-trophy");
+        let cards = 0;
+        refs.forEach((ref) => {
+          const trophy = trophyMap.get(String(ref));
+          if (trophy) {
+            wrap.appendChild(buildTrophy(trophy));
+            cards++;
+          } else {
+            // texto livre (formato antigo): selo simples
+            const legacy = h("div", "cm-trophy-legacy");
+            legacy.textContent = String(ref);
+            wrap.appendChild(legacy);
+          }
+        });
+        if (cards) {
+          const label = h("div", "cm-node-trophy-label");
+          label.textContent = cards > 1 ? "🏆 TROFÉUS DESBLOQUEADOS AQUI" : "🏆 TROFÉU DESBLOQUEADO AQUI";
+          wrap.insertBefore(label, wrap.firstChild);
+        }
+        return wrap;
+      }
+
+      /* ─── 5.7 Convergência (pop-up 📍) ───────────────────────── */
+      function convergenceOf(node) {
+        if (!Array.isArray(node.converge) || !node.converge.length) return null;
+        const inPath = new Set(state.path);
+        const follow = [];
+        const locked = [];
+        node.converge.forEach((rule) => {
+          const needs = rule.needs || [];
+          const forbids = rule.forbids || [];
+          const active = needs.every((id) => inPath.has(id)) && !forbids.some((id) => inPath.has(id));
+          if (active) { if (rule.ok) follow.push(rule); }
+          else if (rule.lost) locked.push(rule);
+        });
+        return { follow: follow, locked: locked };
+      }
+
+      function buildConvGroup(kind, title, rules, textKey) {
+        const group = document.createDocumentFragment();
+        const heading = h("div", "cm-conv-group-title " + kind);
+        heading.textContent = title;
+        group.appendChild(heading);
+        rules.forEach((rule) => {
+          const item = h("div", "cm-conv-item");
+          const trophy = rule.trophy != null ? trophyMap.get(String(rule.trophy)) : null;
+          if (trophy) item.appendChild(buildTrophy(trophy, { compact: true }));
+          item.appendChild(h("div", "cm-conv-text", rule[textKey]));
+          group.appendChild(item);
+        });
+        return group;
+      }
+
+      function openConvergence(nodeId, anchor) {
+        const node = currentChapter().nodes.get(nodeId);
+        const data = node && convergenceOf(node);
+        if (!data) return;
+
+        dom.popupBody.replaceChildren();
+        const title = h("div", "cm-conv-title");
+        title.textContent = "📍 Ponto de Convergência";
+        dom.popupBody.appendChild(title);
+        if (data.follow.length) dom.popupBody.appendChild(buildConvGroup("follow", "Esta rota segue para", data.follow, "ok"));
+        if (data.locked.length) dom.popupBody.appendChild(buildConvGroup("locked", "Já travado nesta run", data.locked, "lost"));
+
+        dom.popup.hidden = false;
+        const stageRect = dom.stage.getBoundingClientRect();
+        const card = dom.popupCard;
+        const cw = card.offsetWidth;
+        const chh = card.offsetHeight;
+        let x = (stageRect.width - cw) / 2;
+        let y = (stageRect.height - chh) / 2;
+        if (anchor) {
+          const r = anchor.getBoundingClientRect();
+          x = r.right - stageRect.left + 8;
+          y = r.top - stageRect.top;
+        }
+        card.style.left = clamp(x, 10, Math.max(10, stageRect.width - cw - 10)) + "px";
+        card.style.top = clamp(y, 10, Math.max(10, stageRect.height - chh - 10)) + "px";
+      }
+
+      function closeConvergence() { dom.popup.hidden = true; }
+
+      /* ─── 5.8 Card do nó ─────────────────────────────────────── */
+      const END_STATUS = {
+        gameover: "❌ FIM DE JOGO",
+        victory: "🏆 CONCLUÍDO",
+        alt: "🔀 FINAL ALTERNATIVO"
+      };
+
+      function buildCard(node, chapter) {
+        const idx = state.path.indexOf(node.id);
+        const selected = idx !== -1;
+        const decided = selected && idx < state.path.length - 1;
+        const chosenTarget = decided ? state.path[idx + 1] : null;
+        const type = normalizeType(node.type);
+        const lane = node.lane && chapter.lanes && chapter.lanes[node.lane];
+
+        let cls = "cm-node " + (selected ? "selected" : "dimmed");
+        if (type) cls += " t-" + type;
+        if (lane) cls += " has-lane";
+        const card = h("article", cls);
+        card.dataset.node = node.id;
+        if (lane) card.style.setProperty("--lane", lane.color);
+
+        // cabeçalho: id + selo de convergência + delta
+        const head = h("div", "cm-node-head");
+        const idLabel = h("span", "cm-node-id");
+        idLabel.textContent = node.id.toUpperCase();
+        head.appendChild(idLabel);
+        const right = h("div", "cm-node-head-right");
+        if (convergenceOf(node)) {
+          const badge = h("button", "cm-conv-badge", "📍");
+          badge.type = "button";
+          badge.dataset.conv = node.id;
+          badge.title = "Ver troféus dessa rota";
+          right.appendChild(badge);
+        }
+        if (M.enabled) {
+          const d = node.delta || 0;
+          const tag = h("span", "cm-delta " + (d > 0 ? "pos" : d < 0 ? "neg" : "neutral"));
+          tag.textContent = d > 0 ? "+" + d : String(d);
+          right.appendChild(tag);
+        }
+        head.appendChild(right);
+        card.appendChild(head);
+
+        const trophies = buildNodeTrophies(node);
+        if (trophies) card.appendChild(trophies);
+
+        if (lane) {
+          const laneBadge = h("span", "cm-lane-badge");
+          laneBadge.textContent = lane.label.split("—")[0].trim();
+          card.appendChild(laneBadge);
+        }
+
+        card.appendChild(h("div", "cm-node-title", node.title));
+        card.appendChild(h("div", "cm-node-text", node.text));
+
+        if (node.options && node.options.length) {
+          const box = h("div", "cm-options");
+          node.options.forEach((opt) => {
+            const btn = h("button", "cm-option");
+            btn.type = "button";
+            btn.dataset.source = node.id;
+            btn.dataset.target = opt.target;
+            const label = h("span", "", opt.label);
+            const mark = h("span", "cm-option-mark");
+            if (chosenTarget === opt.target) {
+              btn.classList.add("chosen");
+              btn.title = "Clique para desfazer e testar outra rota";
+              mark.textContent = "✓";
+            } else if (!selected || (decided && chosenTarget !== opt.target)) {
+              btn.classList.add("locked");
+              btn.disabled = true;
+              btn.title = "Desfaça a escolha ativa acima para reabrir este caminho";
+              mark.textContent = "🔒";
+            } else {
+              mark.textContent = "➔";
+            }
+            btn.appendChild(label);
+            btn.appendChild(mark);
+            box.appendChild(btn);
+          });
+          card.appendChild(box);
+        } else if (type && END_STATUS[type]) {
+          const status = h("div", "cm-status " + type);
+          status.textContent = node.endLabel || END_STATUS[type];
+          card.appendChild(status);
+        }
+
+        nodeEls.set(node.id, card);
+        return card;
+      }
+
+      /* ─── 5.9 Layouts: comum e com fileiras (lanes) ──────────── */
+      function renderFlat(chapter) {
+        chapter.levels.forEach((level) => {
+          const column = h("div", "cm-column");
+          level.forEach((node) => column.appendChild(buildCard(node, chapter)));
+          dom.nodes.appendChild(column);
+        });
+      }
+
+      // Cada fileira tem seu próprio contador de coluna: avança só quando há um
+      // nível daquela fileira. Níveis sem "lane" ficam na fileira do meio e
+      // sincronizam todos os contadores.
+      function renderLanes(chapter) {
+        const laneKeys = Object.keys(chapter.lanes);
+        const rowOrder = [laneKeys[0], "shared"].concat(laneKeys.slice(1));
+        const laneCol = {};
+        laneKeys.forEach((k) => { laneCol[k] = 0; });
+        let maxCol = 0;
+        const cells = [];
+
+        chapter.levels.forEach((level) => {
+          const laneKey = level[0] && level[0].lane;
+          let col;
+          if (!laneKey) {
+            col = maxCol + 1;
+            maxCol = col;
+            laneKeys.forEach((k) => { laneCol[k] = col; });
+          } else {
+            laneCol[laneKey] += 1;
+            col = laneCol[laneKey];
+            maxCol = Math.max(maxCol, col);
+          }
+          cells.push({ col: col, row: laneKey || "shared", nodes: level });
+        });
+
+        dom.nodes.style.gridTemplateColumns = "repeat(" + maxCol + ", " + CM_CONFIG.nodeWidth + "px)";
+        dom.nodes.style.gridTemplateRows = rowOrder.map(() => "auto").join(" ");
+
+        cells.forEach((cell) => {
+          const box = h("div", "cm-lane-cell");
+          box.style.gridColumn = String(cell.col);
+          box.style.gridRow = String(rowOrder.indexOf(cell.row) + 1);
+          cell.nodes.forEach((node) => box.appendChild(buildCard(node, chapter)));
+          dom.nodes.appendChild(box);
+        });
+      }
+
+      function renderLegend(chapter) {
+        if (!chapter.lanes) { dom.legend.hidden = true; dom.legend.replaceChildren(); return; }
+        dom.legend.hidden = false;
+        dom.legend.replaceChildren();
+        Object.keys(chapter.lanes).forEach((key) => {
+          const lane = chapter.lanes[key];
+          const chip = h("span", "cm-legend-chip");
+          const dot = h("span", "cm-legend-dot");
+          dot.style.background = lane.color;
+          chip.appendChild(dot);
+          chip.appendChild(document.createTextNode(lane.label));
+          dom.legend.appendChild(chip);
+        });
+      }
+
+      /* ─── 5.10 Linhas de conexão (SVG) ───────────────────────── */
+      function isEdgeActive(sourceId, targetId) {
+        for (let i = 0; i < state.path.length - 1; i++) {
+          if (state.path[i] === sourceId && state.path[i + 1] === targetId) return true;
+        }
+        return false;
+      }
+
+      function drawConnections() {
+        const ch = currentChapter();
+        if (!ch) return;
+
+        // zera o SVG antes de medir, senão o scroll nunca encolhe depois de um zoom-out
+        dom.svg.replaceChildren();
+        dom.svg.style.width = "0px";
+        dom.svg.style.height = "0px";
+        const fullW = Math.max(dom.workspace.scrollWidth, dom.workspace.clientWidth);
+        const fullH = Math.max(dom.workspace.scrollHeight, dom.workspace.clientHeight);
+        dom.svg.setAttribute("width", fullW);
+        dom.svg.setAttribute("height", fullH);
+        dom.svg.style.width = fullW + "px";
+        dom.svg.style.height = fullH + "px";
+
+        const wsRect = dom.workspace.getBoundingClientRect();
+        const rects = new Map();
+        const rectOf = (id) => {
+          if (!rects.has(id)) {
+            const el = nodeEls.get(id);
+            rects.set(id, el ? el.getBoundingClientRect() : null);
+          }
+          return rects.get(id);
+        };
+
+        const idle = [];
+        const active = [];
+
+        ch.levels.forEach((level) => level.forEach((node) => {
+          (node.options || []).forEach((opt) => {
+            const a = rectOf(node.id);
+            const b = rectOf(opt.target);
+            if (!a || !b) return;
+
+            const x1 = a.right - wsRect.left + dom.workspace.scrollLeft;
+            const y1 = a.top + a.height / 2 - wsRect.top + dom.workspace.scrollTop;
+            const x2 = b.left - wsRect.left + dom.workspace.scrollLeft;
+            const y2 = b.top + b.height / 2 - wsRect.top + dom.workspace.scrollTop;
+            const dx = (x2 - x1) * 0.5;
+
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", "M " + x1 + " " + y1 + " C " + (x1 + dx) + " " + y1 + ", " + (x2 - dx) + " " + y2 + ", " + x2 + " " + y2);
+
+            let cls = "cm-edge";
+            if (isEdgeActive(node.id, opt.target)) {
+              cls += " active";
+              const targetType = normalizeType((ch.nodes.get(opt.target) || {}).type);
+              if (targetType) {
+                cls += " " + targetType;      // desfecho: cor fixa por tipo
+              } else {
+                cls += " " + (M.enabled ? tierOf(meterAt(state.path.indexOf(opt.target))) : "tier-green");
+              }
+              path.setAttribute("class", cls);
+              active.push(path);
+            } else {
+              path.setAttribute("class", cls);
+              idle.push(path);
+            }
+          });
+        }));
+
+        // linhas ativas por último, para ficarem por cima
+        idle.concat(active).forEach((p) => dom.svg.appendChild(p));
+      }
+
+      const redrawSoon = debounce(drawConnections, 160);
+
+      /* ─── 5.11 Render principal ──────────────────────────────── */
+      function renderPicker() {
+        dom.chapter.replaceChildren();
+        chapters.forEach((ch) => {
+          const opt = document.createElement("option");
+          opt.value = ch.id;
+          opt.textContent = ch.available ? ch.name : "🔒 " + ch.name;
+          opt.disabled = !ch.available;
+          opt.selected = ch.id === state.chapterId;
+          dom.chapter.appendChild(opt);
+        });
+      }
+
+      function samePath(a, b) {
+        return a.length === b.length && a.every((v, i) => v === b[i]);
+      }
+
+      function renderPresets() {
+        const ch = currentChapter();
+        dom.presets.replaceChildren();
+        ch.presets.forEach((p) => {
+          const btn = h("button", "cm-preset" + (samePath(p.path, state.path) ? " is-active" : ""));
+          btn.type = "button";
+          btn.dataset.preset = p.id;
+          btn.textContent = p.label;
+          dom.presets.appendChild(btn);
+        });
+      }
+
+      function renderGraph() {
+        const ch = currentChapter();
+        nodeEls.clear();
+        dom.nodes.replaceChildren();
+        dom.nodes.style.gridTemplateColumns = "";
+        dom.nodes.style.gridTemplateRows = "";
+        renderLegend(ch);
+
+        if (ch.lanes) {
+          dom.nodes.classList.add("is-lanes");
+          renderLanes(ch);
+        } else {
+          dom.nodes.classList.remove("is-lanes");
+          renderFlat(ch);
+        }
+
+        renderPresets();
+        updateHUD();
+        closeConvergence();
+        requestAnimationFrame(drawConnections);
+      }
+
+      /* ─── 5.12 Ações ─────────────────────────────────────────── */
+      function selectChapter(id) {
+        const ch = chapterById.get(id);
+        if (!ch || !ch.available) return;
+        state.chapterId = id;
+        state.path = sanitizePath(ch, store.readPath(id));
+        store.writeLast(id);
+        renderPicker();
+        dom.workspace.scrollLeft = 0;
+        dom.workspace.scrollTop = 0;
+        renderGraph();
+      }
+
+      function selectBranch(sourceId, targetId) {
+        const i = state.path.indexOf(sourceId);
+        if (i === -1) return;
+        const sameChoice = state.path[i + 1] === targetId;
+        state.path = state.path.slice(0, i + 1);
+        if (!sameChoice) state.path.push(targetId);
+        savePath();
+        renderGraph();
+      }
+
+      function loadPreset(presetId) {
+        const ch = currentChapter();
+        const preset = ch.presets.find((p) => p.id === presetId);
+        if (!preset) return;
+        state.path = sanitizePath(ch, preset.path);
+        savePath();
+        renderGraph();
+      }
+
+      function resetChapter() {
+        state.path = [currentChapter().start];
+        savePath();
+        renderGraph();
+      }
+
+      /* ─── 5.13 Zoom e arraste ────────────────────────────────── */
+      const Z = CM_CONFIG.zoom;
+
+      function zoomAt(level, clientX, clientY) {
+        const next = clamp(level, Z.min, Z.max);
+        if (next === state.zoom) return;
+        const ws = dom.workspace;
+        const rect = ws.getBoundingClientRect();
+        const px = clientX - rect.left;
+        const py = clientY - rect.top;
+        const contentX = (ws.scrollLeft + px) / state.zoom;
+        const contentY = (ws.scrollTop + py) / state.zoom;
+
+        state.zoom = next;
+        dom.nodes.style.transform = "scale(" + next + ")";
+        dom.zoomVal.textContent = Math.round(next * 100) + "%";
+        ws.scrollLeft = contentX * next - px;
+        ws.scrollTop = contentY * next - py;
+        redrawSoon();
+      }
+
+      function zoomCenter(level) {
+        const r = dom.workspace.getBoundingClientRect();
+        zoomAt(level, r.left + r.width / 2, r.top + r.height / 2);
+      }
+
+      function setupWheelZoom() {
+        dom.workspace.addEventListener("wheel", function (e) {
+          e.preventDefault();
+          const step = e.deltaY < 0 ? Z.wheelStep : -Z.wheelStep;
+          zoomAt(+(state.zoom + step).toFixed(2), e.clientX, e.clientY);
+        }, { passive: false });
+      }
+
+      function setupPinchZoom() {
+        let startDist = null;
+        let startLevel = 1;
+        const dist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+
+        dom.workspace.addEventListener("touchstart", function (e) {
+          if (e.touches.length === 2) { startDist = dist(e.touches); startLevel = state.zoom; }
+        }, { passive: true });
+
+        dom.workspace.addEventListener("touchmove", function (e) {
+          if (e.touches.length === 2 && startDist) {
+            e.preventDefault();
+            const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+            const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+            zoomAt(+(startLevel * (dist(e.touches) / startDist)).toFixed(2), midX, midY);
+          }
+        }, { passive: false });
+
+        dom.workspace.addEventListener("touchend", function (e) {
+          if (e.touches.length < 2) startDist = null;
+        }, { passive: true });
+      }
+
+      // Arrastar com o mouse (no toque o navegador já rola sozinho)
+      function setupDragPan() {
+        const ws = dom.workspace;
+        let down = false;
+        let sx = 0, sy = 0, sl = 0, st = 0;
+
+        ws.addEventListener("pointerdown", function (e) {
+          if (e.pointerType !== "mouse" || e.button !== 0) return;
+          if (e.target.closest(".cm-node") || e.target.closest("button")) return;
+          e.preventDefault();
+          down = true;
+          sx = e.clientX; sy = e.clientY;
+          sl = ws.scrollLeft; st = ws.scrollTop;
+          ws.classList.add("is-grabbing");
+        });
+        window.addEventListener("pointermove", function (e) {
+          if (!down || e.pointerType !== "mouse") return;
+          ws.scrollLeft = sl - (e.clientX - sx) * CM_CONFIG.dragSpeed;
+          ws.scrollTop = st - (e.clientY - sy) * CM_CONFIG.dragSpeed;
+        });
+        window.addEventListener("pointerup", function (e) {
+          if (!down || e.pointerType !== "mouse") return;
+          down = false;
+          ws.classList.remove("is-grabbing");
+        });
+      }
+
+      /* ─── 5.14 Validação dos dados (aviso no console) ────────── */
+      function validateData() {
+        const problems = [];
+        const seenTrophyIds = new Set();
+        CM_TROFEUS.forEach((t) => {
+          if (seenTrophyIds.has(String(t.id))) problems.push("troféu com id repetido: " + t.id);
+          seenTrophyIds.add(String(t.id));
+          if (!CM_TIPO_STYLE[t.tipo]) problems.push("troféu '" + t.id + "' usa tier sem estilo: " + t.tipo);
+        });
+
+        chapters.forEach((ch) => {
+          const tag = "[" + ch.id + "] ";
+          const ids = new Set();
+          ch.levels.forEach((level) => level.forEach((n) => {
+            if (ids.has(n.id)) problems.push(tag + "id de nó repetido: " + n.id);
+            ids.add(n.id);
+          }));
+          if (!ch.nodes.has(ch.start)) problems.push(tag + "nó inicial não existe: " + ch.start);
+
+          ch.levels.forEach((level, li) => {
+            const lanes = new Set(level.map((n) => n.lane || ""));
+            if (lanes.size > 1) problems.push(tag + "coluna " + (li + 1) + " mistura fileiras diferentes");
+            level.forEach((n) => {
+              if (n.lane && !(ch.lanes && ch.lanes[n.lane])) problems.push(tag + "nó '" + n.id + "' usa lane sem definição: " + n.lane);
+              if (!n.options && !n.type) problems.push(tag + "nó sem saída e sem type: " + n.id);
+              (n.options || []).forEach((o) => {
+                if (!ch.nodes.has(o.target)) problems.push(tag + "'" + n.id + "' aponta para nó inexistente: " + o.target);
+              });
+              trophyRefs(n).forEach((ref) => {
+                if (!trophyMap.has(String(ref))) problems.push(tag + "'" + n.id + "' usa troféu fora do registro (vai como selo simples): " + ref);
+              });
+              (n.converge || []).forEach((r) => {
+                if (r.trophy != null && !trophyMap.has(String(r.trophy))) problems.push(tag + "convergência de '" + n.id + "' cita troféu inexistente: " + r.trophy);
+                (r.needs || []).concat(r.forbids || []).forEach((id) => {
+                  if (!ch.nodes.has(id)) problems.push(tag + "convergência de '" + n.id + "' cita nó inexistente: " + id);
+                });
+              });
+            });
+          });
+
+          // nós inalcançáveis a partir do início
+          const reach = new Set([ch.start]);
+          const queue = [ch.start];
+          while (queue.length) {
+            const n = ch.nodes.get(queue.shift());
+            ((n && n.options) || []).forEach((o) => {
+              if (!reach.has(o.target) && ch.nodes.has(o.target)) { reach.add(o.target); queue.push(o.target); }
+            });
+          }
+          ch.nodes.forEach((n, id) => { if (!reach.has(id)) problems.push(tag + "nó inalcançável: " + id); });
+
+          ch.presets.forEach((p) => {
+            if (!isValidPath(ch, p.path)) problems.push(tag + "preset '" + p.id + "' tem caminho inválido");
+          });
+        });
+
+        if (problems.length) console.warn("[Caminhos] " + problems.length + " problema(s) nos dados:\n- " + problems.join("\n- "));
+        else console.info("[Caminhos] dados OK");
+        return problems;
+      }
+
+      // Checagem estrita usada só na validação: devolve false se algum passo do preset for inválido.
+      function isValidPath(chapter, path) {
+        if (!path || !path.length || path[0] !== chapter.start) return false;
+        for (let i = 1; i < path.length; i++) {
+          const prev = chapter.nodes.get(path[i - 1]);
+          if (!prev || !(prev.options || []).some((o) => o.target === path[i])) return false;
+        }
+        return chapter.nodes.has(path[path.length - 1]);
+      }
+
+      /* ─── 5.15 Inicialização ─────────────────────────────────── */
+      function init() {
+        dom.app.style.setProperty("--cm-node-w", CM_CONFIG.nodeWidth + "px");
+        dom.title.textContent = CM_CONFIG.titulo;
+        dom.subtitle.textContent = CM_CONFIG.subtitulo;
+        dom.meterLabel.textContent = M.label;
+
+        dom.reset.addEventListener("click", resetChapter);
+        dom.chapter.addEventListener("change", function () { selectChapter(dom.chapter.value); });
+        dom.presets.addEventListener("click", function (e) {
+          const btn = e.target.closest("[data-preset]");
+          if (btn) loadPreset(btn.dataset.preset);
+        });
+
+        dom.nodes.addEventListener("click", function (e) {
+          const opt = e.target.closest(".cm-option");
+          if (opt && !opt.disabled) { selectBranch(opt.dataset.source, opt.dataset.target); return; }
+          const conv = e.target.closest(".cm-conv-badge");
+          if (conv) { e.stopPropagation(); openConvergence(conv.dataset.conv, conv); }
+        });
+
+        dom.popup.addEventListener("click", closeConvergence);
+        dom.popupCard.addEventListener("click", function (e) { e.stopPropagation(); });
+        dom.popupClose.addEventListener("click", closeConvergence);
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeConvergence(); });
+
+        document.querySelectorAll("[data-zoom]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const mode = btn.dataset.zoom;
+            if (mode === "reset") zoomCenter(1);
+            else zoomCenter(+(state.zoom + (mode === "in" ? 1 : -1) * Z.buttonStep).toFixed(2));
+          });
+        });
+
+        window.addEventListener("resize", redrawSoon);
+        setupWheelZoom();
+        setupPinchZoom();
+        setupDragPan();
+
+        validateData();
+
+        const last = store.readLast();
+        const first = chapters.find((c) => c.available);
+        const startId = chapterById.has(last) && chapterById.get(last).available ? last : first && first.id;
+        if (startId) selectChapter(startId);
+      }
+
+      init();
+    })();
+    </script>
+
+    <!-- ═══ CAMINHOS · FALLBACK DO HUD (navegadores sem :has()) ═══ -->
+    <script id="cm-hud-fallback">
+      (function () {
+        var hud = document.getElementById('cm-hud');
+        if (!hud) return;
+        function sync() {
+          var vazio = true;
+          for (var i = 0; i < hud.children.length; i++) {
+            if (!hud.children[i].hidden) { vazio = false; break; }
+          }
+          hud.classList.toggle('cm-hud-vazio', vazio);
+        }
+        sync();
+        if (window.MutationObserver) {
+          new MutationObserver(sync).observe(hud, { attributes: true, attributeFilter: ['hidden'], subtree: true });
+        }
+      })();
     </script>
   </body>
 </html>
